@@ -21,4 +21,6 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-src/WordStartGameApp/WordStart/GetWord/GetWordPage/GetWordPageComponent.js
+
+#api keys
+.env

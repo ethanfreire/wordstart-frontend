@@ -1,6 +1,7 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
 
-const SignUpPageComponent = ()=>{
+const SignUpPageComponent = (props)=>{
   //on submit of this form you make a post request on users DB to add new user
   return(
     <div>
@@ -8,20 +9,22 @@ const SignUpPageComponent = ()=>{
     <h1>
     Signing Up for a Word Start account
     </h1>
-    <form>
-      <label>
+    <form onSubmit = {props.handleSubmit}>
+      <label htmlFor="newUsername">
       <div>
         UserName:
-          <input type="text" name="username" placeholder="please enter a username" />
+          <input type="text" id="newUsername"name="username" placeholder="please enter a username" />
           </div>
       </label>
-      <label>
+      <label htmlFor="newPassword">
       <div>
         Password:
-          <input type="text" name="password" placeholder="please enter a password" />
+          <input type="text" id="newPassword" name="password" placeholder="please enter a password" />
           </div>
       </label>
-          <input type="submit" value="Create An Account" />
+            <input type="submit" value="Create An Account" />
+
+
     </form>
     </div>
   )

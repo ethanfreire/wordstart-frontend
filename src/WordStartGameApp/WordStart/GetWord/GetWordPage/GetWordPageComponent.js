@@ -1,4 +1,5 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
 
 const GetWordPageComponent = (props)=>{
 //submit button need a callback function back to container to handel word search logic
@@ -13,6 +14,7 @@ const GetWordPageComponent = (props)=>{
       <input type="text" id="SearchWord" name="word" placeholder="please enter a word" />
       <input type="submit" value="Submit" />
     </form>
+
     </div>
   )
 }

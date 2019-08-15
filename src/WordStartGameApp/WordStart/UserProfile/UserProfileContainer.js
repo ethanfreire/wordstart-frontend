@@ -3,6 +3,15 @@ import UserProfileComponent from "/Users/ethanfreire/Desktop/wordstart-frontend/
 
 class UserProfileContainer extends React.Component {
 
+constructor(){
+  super()
+  this.state={
+
+    
+  }
+}
+
+
   render(){
     return(
       <div>

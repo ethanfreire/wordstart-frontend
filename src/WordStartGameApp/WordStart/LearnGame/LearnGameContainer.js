@@ -2,6 +2,8 @@ import React from 'react'
 import UserProfileContainer from '/Users/ethanfreire/Desktop/wordstart-frontend/src/WordStartGameApp/WordStart/UserProfile/UserProfileContainer.js'
 import LearnPageContainer from "/Users/ethanfreire/Desktop/wordstart-frontend/src/WordStartGameApp/WordStart/LearnGame/LearnGamePage/LearnPageContainer.js"
 import LearnResultsPageContainer from "/Users/ethanfreire/Desktop/wordstart-frontend/src/WordStartGameApp/WordStart/LearnGame/LearnGameResultsPage/LearnResultsPageContainer.js"
+import { withRouter } from 'react-router-dom'
+
 
 class LearnGameContainer extends React.Component {
 
@@ -11,10 +13,22 @@ class LearnGameContainer extends React.Component {
       <p>I am a learn  container</p>
       <UserProfileContainer />
       I am a learn container , with a user profile component
+
+
+
+
+      { this.props.location.pathname === "/learngame" ?
       <LearnPageContainer />
-      <LearnResultsPageContainer />
+      :  null
+
+       }
+       { this.props.location.pathname === "/learnresult" ?
+       <LearnResultsPageContainer />
+       :  null
+
+        }
       </div>
     )
   }
 }
-export default LearnGameContainer
+export default withRouter(LearnGameContainer)
