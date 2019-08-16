@@ -4,12 +4,15 @@ const ResultWordComponent = (props)=>{
   return(
     <div>
     You have hit result page component
-    <form onSubmit={props.handleSubmit}>
-        <label>
-          You Searched for Word:{props.searchWord.word}
-        </label>
-        <input type="submit" value="Submit" />
-      </form>
+    <p>The word you searched for is {props.searchWord.word}, Here are the results</p>
+    <h1> {props.searchWord.word} </h1>
+    <p>Part of Speech: {props.searchWord.part_of_speech}</p>
+    <p>Synonym: {props.searchWord.synonym}</p>
+    <p>Definition: {props.searchWord.definition}</p>
+    <p>Example: {props.searchWord.examples}</p>
+
+
+
     </div>
   )
 }

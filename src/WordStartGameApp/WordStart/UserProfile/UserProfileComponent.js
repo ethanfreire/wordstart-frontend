@@ -1,9 +1,11 @@
 import React from 'react'
 
-const UserProfileComponent = ()=>{
+
+const UserProfileComponent = (props)=>{
+  console.log(props)
   return(
     <div>
-    I am currently login as XXXXX
+   <div>  I am logged in as {props.user.username}</div>
     </div>
   )
 }

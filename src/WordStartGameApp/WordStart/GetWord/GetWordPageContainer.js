@@ -23,8 +23,12 @@ class GetWordPageContainer extends React.Component {
 
   postWord = (data) => {
     console.log("make a word", data)
-    if (data.message || !data.results){
+    if (data.message ){
       alert("this is not an english word")
+      document.querySelector("#SearchWord").value = ""
+    }
+    else if (!data.results) {
+      alert("there is not enough information on this word")
       document.querySelector("#SearchWord").value = ""
     }
     else{
@@ -50,6 +54,8 @@ class GetWordPageContainer extends React.Component {
       })
       .then(response => response.json())
       .then(data => {
+        this.addUserWord(data)
+        
         this.props.setSearchWord(data)
         this.props.history.push("/resultword")
 
@@ -58,15 +64,39 @@ class GetWordPageContainer extends React.Component {
   }
 
 
+  //adding a word to the logged in user
+  addUserWord=(data)=> {
+    console.log("hi",data)
+    let wordId = data.id
+    let userId = 2
+
+      let newUserWord={
+    user_id: userId,
+    word_id: wordId,
+    activeword: false
+      }
+    fetch("http://localhost:3000/user_words",
+    {
+      method: "POST",
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify(newUserWord)
+    })
+    .then(response => response.json())
+    .then(data => console.log(data))
+
+
+  }
+
+
 
 
   handleSubmit = (event) => {
     event.preventDefault()
-    let apiUrl = "https://wordsapiv1.p.mashape.com/words"
+
     let searchWord = document.querySelector("#SearchWord").value
     let key = "X-Mashape-Key"
     let value = `${process.env.REACT_APP_WORD_API_KEY}`
-    var request = new Request(`https://wordsapiv1.p.mashape.com/words/${searchWord}`, {
+    let request = new Request(`https://wordsapiv1.p.mashape.com/words/${searchWord}`, {
       headers: new Headers({
         'X-Mashape-Key': value
       })
@@ -80,17 +110,55 @@ class GetWordPageContainer extends React.Component {
 
   }
 
+  getRandomWord = () => {
+    console.log("I am searching a random word")
 
+    let randomApi = "https://wordsapiv1.p.mashape.com/words"
+    let key = "X-Mashape-Key"
+    let value = `${process.env.REACT_APP_WORD_API_KEY}`
+    let request = new Request(`https://wordsapiv1.p.mashape.com/words/?random=true`,
+      {
+      headers: new Headers({
+        'X-Mashape-Key': value
+      })
+    })
+    fetch(request)
+    .then(response => response.json())
+    .then(data =>  {
+      this.searchRandomWord(data)
+    })
+  }
+
+  searchRandomWord = (data)=>{
+    console.log("looking up", data.word)
+    let randomWord = data.word
+    let key = "X-Mashape-Key"
+    let value = `${process.env.REACT_APP_WORD_API_KEY}`
+    let request = new Request(`https://wordsapiv1.p.mashape.com/words/${randomWord}`, {
+      headers: new Headers({
+        'X-Mashape-Key': value
+      })
+    })
+    console.log("making a search for",randomWord)
+    fetch(request)
+    .then(response => response.json())
+    .then(data =>  {
+      this.postWord(data)
+    })
+  }
 
 
   render(){
+    console.log(this.props.loginUser)
     return(
       <div>
       <p>I am a get word page</p>
-      <UserProfileContainer />
-      I am a GetWordPageContainer, with a user profile component
-      <GetWordPageComponent handleSubmit={this.handleSubmit}/>
 
+    <UserProfileContainer />
+      I am a GetWordPageContainer, with a user profile component
+      <GetWordPageComponent handleSubmit={this.handleSubmit} />
+      <p>OR</p>
+      <button onClick = {this.getRandomWord}> Search Random Word</button>
       </div>
     )
   }

@@ -30,12 +30,10 @@ const LoginPageComponent = (props)=>{
         <label htmlFor="currentPassword">
           <div>
           Password:
-          <input type="text" id="currentPassword" name="password" placeholder="please enter a password" />
+          <input type="password" id="currentPassword" name="password" placeholder="please enter a password" />
           </div>
         </label>
-        <Link to = {`/getword`}>
-          <input type="submit" value="Log In" />
-        </Link>
+         <input type="submit" value="Log In" />
       </div>
     <div>
       <div>

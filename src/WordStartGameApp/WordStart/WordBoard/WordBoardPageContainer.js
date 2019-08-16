@@ -5,7 +5,13 @@ import BoardContainer from "/Users/ethanfreire/Desktop/wordstart-frontend/src/Wo
 
 
 class WordBoardPageContainer extends React.Component {
+
+  
+
+
+
 render(){
+  console.log(this.props)
   return(
     <div>
     <p>I am a Word Board page</p>

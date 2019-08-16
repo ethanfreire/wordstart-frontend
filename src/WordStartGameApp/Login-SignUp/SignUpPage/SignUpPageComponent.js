@@ -23,8 +23,6 @@ const SignUpPageComponent = (props)=>{
           </div>
       </label>
             <input type="submit" value="Create An Account" />
-
-
     </form>
     </div>
   )
