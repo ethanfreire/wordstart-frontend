@@ -55,20 +55,32 @@ class GetWordPageContainer extends React.Component {
       .then(response => response.json())
       .then(data => {
         this.addUserWord(data)
-        
+
+//have a function to refresh back end to reflect changes
+        // this.check()
+
+
+
         this.props.setSearchWord(data)
+
         this.props.history.push("/resultword")
 
       } )
     }
   }
 
+  // check(){
+  //   fetch("http://localhost:3000/users/")
+  //   .then(response => response.json())
+  //   .then(dataObject => {console.log("fecthing again",dataObject)})
+  // }
 
-  //adding a word to the logged in user
+  //adding a word to the logged in user-make generic with access to userobj
   addUserWord=(data)=> {
-    console.log("hi",data)
+    console.log("I am going to post this data to this user",data)
+    console.log(this.props.currentActiveUser)
     let wordId = data.id
-    let userId = 2
+    let userId = this.props.currentActiveUser.id
 
       let newUserWord={
     user_id: userId,
@@ -82,7 +94,7 @@ class GetWordPageContainer extends React.Component {
       body: JSON.stringify(newUserWord)
     })
     .then(response => response.json())
-    .then(data => console.log(data))
+    .then(data => console.log("you are here",data))
 
 
   }
@@ -149,13 +161,16 @@ class GetWordPageContainer extends React.Component {
 
 
   render(){
-    console.log(this.props.loginUser)
+    console.log(this.props.currentActiveUser)
     return(
       <div>
       <p>I am a get word page</p>
 
     <UserProfileContainer />
       I am a GetWordPageContainer, with a user profile component
+      <h1>
+       Start Learning a New Word Today {this.props.currentActiveUser.username}
+      </h1>
       <GetWordPageComponent handleSubmit={this.handleSubmit} />
       <p>OR</p>
       <button onClick = {this.getRandomWord}> Search Random Word</button>

@@ -17,6 +17,7 @@ setLoggedIn = ()=> {
   })
 }
 componentDidMount(){
+  
   this.setState({
     loggedIn: this.props.currentActiveUser
   })

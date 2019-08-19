@@ -30,6 +30,35 @@ class GameContainer extends React.Component {
       searchedWords: []
     }
   }
+  updateUserInfo= (data)=>{
+    console.log("trying to update user info of", data)
+    fetch("http://localhost:3000/users/")
+    .then(response => response.json())
+    .then(dataObject => this.setAllUsersGame(dataObject))
+
+
+
+  }
+
+  setAllUsersGame = (dataObject) => {
+    this.setState({
+      allUsers: dataObject
+    })
+    this.getUpdatedUserInfo(this.state.allUsers)
+  }
+
+  getUpdatedUserInfo = (data) => {
+    console.log("this is all current users",data)
+    if(this.state.currentActiveUser != null){
+      var updatedUserInfo = this.state.allUsers.find( profile => profile.username === this.state.currentActiveUser.username)
+    }
+      console.log("updated user info",updatedUserInfo  )
+      this.setState({
+        currentActiveUser: updatedUserInfo ,
+        currentActiveUserUsername: updatedUserInfo.username
+      })
+
+  }
 
   setSearchWord = (data) => {
     console.log("you searched for ", data)
@@ -86,10 +115,10 @@ class GameContainer extends React.Component {
         // <Route path="/signup" render={() => <LoginSignUpContainer />} />
         <Route exact path="/getword" render={() => <GetWordPageContainer currentActiveUser={this.state.currentActiveUser} setSearchWord={this.setSearchWord} />} />
         <Route exact path="/resultword" render={() => <ResultWordPageContainer
-          currentActiveUser={this.state.currentActiveUser} searchWord= {this.state.currentSearchWord} /> } />
-        <Route path="/wordboard" render={() => <WordBoardPageContainer />} />
-        <Route path="/learngame" render={() => <LearnPageContainer />} />
-        <Route path="/learnresult" render={() => <LearnResultsPageContainer />} />
+          currentActiveUser={this.state.currentActiveUser} searchWord= {this.state.currentSearchWord} updateUserInfo={this.updateUserInfo} /> } />
+        <Route path="/wordboard" render={() => <WordBoardPageContainer  currentActiveUser={this.state.currentActiveUser}/>} />
+        <Route path="/learngame" render={() => <LearnPageContainer currentActiveUser={this.state.currentActiveUser}/>} />
+        <Route path="/learnresult" render={() => <LearnResultsPageContainer currentActiveUser={this.state.currentActiveUser}/>} />
         <Route component={NotFound} />
 
       </Switch>

@@ -23,6 +23,7 @@ fetch("http://localhost:3000/users/")
 .then(response => response.json())
 .then(dataObject => this.setAllUsers(dataObject))
 }
+
 setAllUsers = (dataObject) => {
   this.setState({
     allUsers: dataObject

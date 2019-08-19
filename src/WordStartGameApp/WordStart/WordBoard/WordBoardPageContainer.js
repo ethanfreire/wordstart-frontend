@@ -6,20 +6,18 @@ import BoardContainer from "/Users/ethanfreire/Desktop/wordstart-frontend/src/Wo
 
 class WordBoardPageContainer extends React.Component {
 
-  
-
-
 
 render(){
   console.log(this.props)
+  console.log(this.props.currentActiveUser)
   return(
     <div>
     <p>I am a Word Board page</p>
     I am a word board page container, with a userProfilecontainer.
-
+    <h1>Here are your searched words</h1>
     <UserProfileContainer />
     <BoardMenuContainer />
-    <BoardContainer />
+    <BoardContainer currentUserWords={this.props.currentActiveUser.words} />
     </div>
   )
 }

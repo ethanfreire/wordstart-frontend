@@ -7,13 +7,25 @@ import CanvasDraw from "react-canvas-draw";
 
 class ResultWordPageContainer extends React.Component {
 
+  constructor(){
+    super()
+    this.state = {
+      width: 2000
+
+    }
+  }
   handleSubmit = () => {
     console.log("lets go to wordboard")
+  }
+  componentDidMount(){
+    //make a fetch/find call to get current active user from all user array and reset current active user to same logged in user to reflect update in words array.
+    this.props.updateUserInfo(this.props.currentActiveUser)
   }
 
 
 render(){
   console.log(this.props.searchWord)
+  console.log("I am login in as ",this.props.currentActiveUser)
   return(
     <div>
     <p>I am a results page</p>
@@ -21,8 +33,10 @@ render(){
     I am a results word page container, with a userProfilecontainer
     <ResultWordComponent searchWord={this.props.searchWord} handleSubmit={this.handleSubmit}/>
     <div>
-      <p>Practice Writing Your Word On The Canvas</p>
-      <CanvasDraw ref={canvasDraw => (this.saveableCanvas = canvasDraw)} />
+      <h1>Practice Writing Your Word On The Canvas</h1>
+      <div >
+      <CanvasDraw ref={canvasDraw => (this.saveableCanvas = canvasDraw)} canvasWidth={this.state.width}/>
+  </div>
       <button onClick={() => { this.saveableCanvas.clear(); }}>
         Clear
       </button>
@@ -31,7 +45,7 @@ render(){
       <button > Search Another Word</button>
     </Link>
     <Link to = "/wordboard">
-      <button > Add Word To Word Board</button>
+      <button > Go To Word Board</button>
     </Link>
     </div>
   )

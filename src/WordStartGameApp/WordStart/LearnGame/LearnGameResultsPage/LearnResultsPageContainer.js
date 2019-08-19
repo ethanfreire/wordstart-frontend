@@ -5,6 +5,7 @@ import UserProfileContainer from '/Users/ethanfreire/Desktop/wordstart-frontend/
 class LearnResultsPageContainer extends React.Component {
 
   render(){
+    console.log(this.props)
     return(
       <div>
       <p>I am a learn results page</p>
