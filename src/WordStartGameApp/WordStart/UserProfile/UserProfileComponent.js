@@ -6,6 +6,7 @@ const UserProfileComponent = (props)=>{
   return(
     <div>
    <div>  I am logged in as {props.user.username}</div>
+   <button onClick = {props.onClick}> LogOut </button>
     </div>
   )
 }

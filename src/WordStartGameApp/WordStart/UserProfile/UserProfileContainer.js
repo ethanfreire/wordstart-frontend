@@ -16,8 +16,13 @@ setLoggedIn = ()=> {
     loggedIn: this.props.currentActiveUser
   })
 }
+
+onClick = () => {
+  window.location.href = 'http://localhost:3001/login';
+}
+
 componentDidMount(){
-  
+
   this.setState({
     loggedIn: this.props.currentActiveUser
   })
@@ -29,7 +34,7 @@ componentDidMount(){
       <div>
       {this.props.currentActiveUser != null
  ?
-      <UserProfileComponent  user = {this.props.currentActiveUser} />
+      <UserProfileComponent  user = {this.props.currentActiveUser} onClick = {this.onClick}/>
 : null }
 
       </div>

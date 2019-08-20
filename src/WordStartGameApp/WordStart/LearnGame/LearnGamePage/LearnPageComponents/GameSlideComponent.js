@@ -18,6 +18,10 @@ class GameSlideComponent extends React.Component {
       this.props.setAnsArray(this.state.ans, this.props.id)
     }
 
+    onClick = (event, id )=> {
+      event.preventDefault()
+      this.props.iDontKnowOption( this.props.id)
+    }
 
 
   render(){
@@ -26,7 +30,7 @@ class GameSlideComponent extends React.Component {
     <h1>{this.props.array.indexOf(this.props.wordObj) + 1 } Word Out of {this.props.array.length} </h1>
     <form onSubmit = {this.onSubmit}>
     <label >What is this Word:
-      <input onChange = {this.onChange} type="text" data-id={this.props.id}  />
+      <input onChange = {this.onChange} type="text" data-id={this.props.id} required  />
     </label>
 <div>
     <label>Definition:{this.props.wordObj.definition}</label>
@@ -41,7 +45,7 @@ class GameSlideComponent extends React.Component {
     <label>Synonym:{this.props.wordObj.synonym}</label>
     </div>
     <input type="submit" value="Submit" />
-    <button> I don't know</button>
+    <button onClick={this.onClick}> I don't know</button>
     </form>
 
     </div>

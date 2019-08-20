@@ -17,11 +17,12 @@ return (
               return setTimeout(function() {
                 if(window.confirm("Game Over Let's go to results"))
               {
+                //callback to set state
+                props.timerAction()
               props.history.push( "/learnresult")
-              }
+            }
+
                 }, 0)
-
-
 
             }
 

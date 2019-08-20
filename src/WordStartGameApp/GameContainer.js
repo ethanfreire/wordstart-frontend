@@ -27,7 +27,8 @@ class GameContainer extends React.Component {
       UserActiveWords: [],
       copyArrayGame:[],
       currentSearchWord: {},
-      searchedWords: []
+      searchedWords: [],
+      finalAnsArray: []
     }
   }
   updateUserInfo= (data)=>{
@@ -55,10 +56,16 @@ class GameContainer extends React.Component {
       console.log("updated user info",updatedUserInfo  )
       this.setState({
         currentActiveUser: updatedUserInfo ,
-        currentActiveUserUsername: updatedUserInfo.username,
-        copyArrayGame: updatedUserInfo
-      })
+        currentActiveUserUsername: updatedUserInfo.username
 
+      })
+      this.setCopyArray(this.state.currentActiveUser)
+  }
+
+  setCopyArray = (data) => {
+    this.setState({
+      copyArrayGame: [...data.words]
+    })
   }
 
   setSearchWord = (data) => {
@@ -84,10 +91,21 @@ class GameContainer extends React.Component {
     //pass this prop to user profile
   }
 
+  setFinalAnsArray = (data) => {
+    this.setState({
+      finalAnsArray: [...data]
+    })
+  }
 
   componentDidMount(){
     //can fetch users or words from database
 
+  }
+
+  resetLearnGame = () => {
+    this.setState({
+      copyArrayGame: [...this.state.currentActiveUser.words]
+    })
   }
 
   // const key = `${process.env.REACT_APP_WORD_API_KEY}`
@@ -120,8 +138,12 @@ class GameContainer extends React.Component {
         <Route path="/wordboard" render={() => <WordBoardPageContainer  currentActiveUser={this.state.currentActiveUser}/>} />
         <Route path="/learngame" render={() => <LearnPageContainer currentActiveUser={this.state.currentActiveUser}
         copyArrayGame ={this.state.copyArrayGame}
+        setFinalAnsArray = {this.setFinalAnsArray}
         />} />
-        <Route path="/learnresult" render={() => <LearnResultsPageContainer currentActiveUser={this.state.currentActiveUser} />} />
+        <Route path="/learnresult" render={() => <LearnResultsPageContainer currentActiveUser={this.state.currentActiveUser} finalAnsArray={this.state.finalAnsArray}
+        resetLearnGame={this.resetLearnGame}
+        />}
+         />
         <Route component={NotFound} />
 
       </Switch>
