@@ -13,9 +13,9 @@ class GameSlideComponent extends React.Component {
       })
     }
 
-    onSubmit = (event) => {
+    onSubmit = (event,id) => {
       event.preventDefault()
-      this.props.setAnsArray(this.state.ans)
+      this.props.setAnsArray(this.state.ans, this.props.id)
     }
 
 
@@ -41,7 +41,7 @@ class GameSlideComponent extends React.Component {
     <label>Synonym:{this.props.wordObj.synonym}</label>
     </div>
     <input type="submit" value="Submit" />
-
+    <button> I don't know</button>
     </form>
 
     </div>

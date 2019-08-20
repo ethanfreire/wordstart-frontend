@@ -25,7 +25,7 @@ class GameContainer extends React.Component {
       currentActiveUserUsername: "",
       UsersWords: [],
       UserActiveWords: [],
-
+      copyArrayGame:[],
       currentSearchWord: {},
       searchedWords: []
     }
@@ -55,7 +55,8 @@ class GameContainer extends React.Component {
       console.log("updated user info",updatedUserInfo  )
       this.setState({
         currentActiveUser: updatedUserInfo ,
-        currentActiveUserUsername: updatedUserInfo.username
+        currentActiveUserUsername: updatedUserInfo.username,
+        copyArrayGame: updatedUserInfo
       })
 
   }
@@ -117,8 +118,10 @@ class GameContainer extends React.Component {
         <Route exact path="/resultword" render={() => <ResultWordPageContainer
           currentActiveUser={this.state.currentActiveUser} searchWord= {this.state.currentSearchWord} updateUserInfo={this.updateUserInfo} /> } />
         <Route path="/wordboard" render={() => <WordBoardPageContainer  currentActiveUser={this.state.currentActiveUser}/>} />
-        <Route path="/learngame" render={() => <LearnPageContainer currentActiveUser={this.state.currentActiveUser}/>} />
-        <Route path="/learnresult" render={() => <LearnResultsPageContainer currentActiveUser={this.state.currentActiveUser}/>} />
+        <Route path="/learngame" render={() => <LearnPageContainer currentActiveUser={this.state.currentActiveUser}
+        copyArrayGame ={this.state.copyArrayGame}
+        />} />
+        <Route path="/learnresult" render={() => <LearnResultsPageContainer currentActiveUser={this.state.currentActiveUser} />} />
         <Route component={NotFound} />
 
       </Switch>
