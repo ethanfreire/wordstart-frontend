@@ -3,8 +3,11 @@ import React from 'react'
 const ResultsCardComponent = (props)=>{
   console.log(props)
   const renderRedOrGreenCard = (correctAns, userAns) => {
+
     if(correctAns == userAns){
       return {backgroundColor:"green"}
+    }else if (userAns == "" || userAns == undefined){
+      return {backgroundColor:"white"}
     }else{
       return {backgroundColor:"red"}
     }

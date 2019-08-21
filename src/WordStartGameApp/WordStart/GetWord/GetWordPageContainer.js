@@ -14,11 +14,7 @@ class GetWordPageContainer extends React.Component {
   //if false don't add to UserState state info, but still go to results page
 
   //make a post request to add new word to word DB
-  constructor(){
-    super()
-    this.state = {
-    }
-  }
+
 
 
   postWord = (data) => {
@@ -58,8 +54,6 @@ class GetWordPageContainer extends React.Component {
 
 //have a function to refresh back end to reflect changes
         // this.check()
-
-
 
         this.props.setSearchWord(data)
 
@@ -155,7 +149,12 @@ class GetWordPageContainer extends React.Component {
     fetch(request)
     .then(response => response.json())
     .then(data =>  {
-      this.postWord(data)
+      console.log(data)
+      if(data.results){
+        this.postWord(data)
+      }else{
+        this.getRandomWord()
+      }
     })
   }
 

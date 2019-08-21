@@ -4,12 +4,13 @@ import WordCardComponent from '/Users/ethanfreire/Desktop/wordstart-frontend/src
 class BoardContainer extends React.Component {
   deleteWord = (id) => {
     console.log(id)
+    this.props.deleteUserWord(id)
   }
 render(){
   return(
     <div>
     I am a board container with board cards
-    {console.log(this.props.currentUserWords[0].word)}
+    {console.log(this.props.currentUserWords[0])}
     {this.props.currentUserWords.map(wordObj => <WordCardComponent wordObj={wordObj} key={wordObj.id} array={this.props.currentUserWords} deleteWord={this.deleteWord} id={wordObj.id}/>)}
 
     </div>

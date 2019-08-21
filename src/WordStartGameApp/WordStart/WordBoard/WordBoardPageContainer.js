@@ -17,7 +17,8 @@ render(){
     <h1>Here are your searched words</h1>
     <UserProfileContainer />
     <BoardMenuContainer />
-    <BoardContainer currentUserWords={this.props.currentActiveUser.words} />
+    <BoardContainer currentUserWords={this.props.currentUserWords}
+    deleteUserWord = {this.props.deleteUserWord}/>
     </div>
   )
 }

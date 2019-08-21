@@ -21,16 +21,17 @@ class GameContainer extends React.Component {
     this.state = {
       allUsers: [],
       currentActiveUser: null,
-      isLoggedIn: false,
       currentActiveUserUsername: "",
-      UsersWords: [],
-      UserActiveWords: [],
       copyArrayGame:[],
+      finalAnsArray: [],
+      currentUserWords: [],
       currentSearchWord: {},
-      searchedWords: [],
-      finalAnsArray: []
+      searchedWords: []
+
     }
   }
+
+
   updateUserInfo= (data)=>{
     console.log("trying to update user info of", data)
     fetch("http://localhost:3000/users/")
@@ -59,12 +60,13 @@ class GameContainer extends React.Component {
         currentActiveUserUsername: updatedUserInfo.username
 
       })
-      this.setCopyArray(this.state.currentActiveUser)
+      this.setCopyArray(this.state.currentUserWords)
   }
 
   setCopyArray = (data) => {
     this.setState({
-      copyArrayGame: [...data.words]
+      copyArrayGame:this.state.currentUserWords
+
     })
   }
 
@@ -80,6 +82,9 @@ class GameContainer extends React.Component {
 
   searchResultWord = (data) => {
     console.log("go to results with ",data)
+    this.setState({
+      currentUserWords: [...this.state.currentActiveUser.words, data]
+    })
   }
 
   setActiveUser = (foundProfile)=>{
@@ -97,23 +102,35 @@ class GameContainer extends React.Component {
     })
   }
 
-  componentDidMount(){
-    //can fetch users or words from database
 
-  }
 
   resetLearnGame = () => {
     this.setState({
-      copyArrayGame: [...this.state.currentActiveUser.words]
+      copyArrayGame: [...this.state.currentUserWords]
     })
   }
 
-  // const key = `${process.env.REACT_APP_WORD_API_KEY}`
-  // console.log("API", key)
+  deleteUserWord = (id) => {
+    console.log("trying to delete this id ", id)
+    let wordToDelete = this.state.currentActiveUser.words.find(wordObj => wordObj.id == id)
+    console.log("delete this word", wordToDelete)
 
-  // I am a Game Container
-  // and a randomwords array:
-  // <p>{randomWordOfTheDay}</p>
+    fetch(`http://localhost:3000/words/${wordToDelete.id}`,{
+      method: 'DELETE'
+    })
+    .then(response => response.json())
+    .then(data => {
+      console.log("remove from front end",data)
+        let filteredUserWords = this.state.currentUserWords.filter(wordObj => wordObj.id != id)
+      this.setState({
+        currentUserWords: [...filteredUserWords],
+        copyArrayGame: [...filteredUserWords]
+      })
+    })
+
+
+  }
+
 
   render() {
 
@@ -131,17 +148,24 @@ class GameContainer extends React.Component {
         <Route exact path="/" render={() => <Redirect to="/login" />} />
 
         <Route exact path="/login" render={() => <LoginSignUpContainer setActiveUser={this.setActiveUser}/>} />
-        // <Route path="/signup" render={() => <LoginSignUpContainer />} />
+
         <Route exact path="/getword" render={() => <GetWordPageContainer currentActiveUser={this.state.currentActiveUser} setSearchWord={this.setSearchWord} />} />
+
         <Route exact path="/resultword" render={() => <ResultWordPageContainer
           currentActiveUser={this.state.currentActiveUser} searchWord= {this.state.currentSearchWord} updateUserInfo={this.updateUserInfo} /> } />
-        <Route path="/wordboard" render={() => <WordBoardPageContainer  currentActiveUser={this.state.currentActiveUser}/>} />
-        <Route path="/learngame" render={() => <LearnPageContainer currentActiveUser={this.state.currentActiveUser}
+
+        <Route path="/wordboard" render={() => <WordBoardPageContainer  currentUserWords={this.state.currentUserWords}
+        deleteUserWord = {this.deleteUserWord
+        }/>} />
+
+        <Route path="/learngame" render={() => <LearnPageContainer currentUserWords={this.state.currentUserWords}
         copyArrayGame ={this.state.copyArrayGame}
         setFinalAnsArray = {this.setFinalAnsArray}
         />} />
-        <Route path="/learnresult" render={() => <LearnResultsPageContainer currentActiveUser={this.state.currentActiveUser} finalAnsArray={this.state.finalAnsArray}
+
+        <Route path="/learnresult" render={() => <LearnResultsPageContainer currentUserWords={this.state.currentUserWords} finalAnsArray={this.state.finalAnsArray}
         resetLearnGame={this.resetLearnGame}
+        currentActiveUser = {this.state.currentActiveUser}
         />}
          />
         <Route component={NotFound} />
@@ -157,3 +181,8 @@ class GameContainer extends React.Component {
 export default withRouter(GameContainer)
 
 // <WordStartGameContainer currentActiveUser={this.state.currentActiveUser} setSearchWord={this.setSearchWord} searchWord={this.state.currentSearchWord}/>
+
+
+//delete fetch
+// ,
+// currentActiveUser: {...this.state.currentActiveUser, words: filteredUserWords}

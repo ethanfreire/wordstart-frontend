@@ -28,7 +28,7 @@ class LearnPageContainer extends React.Component {
     this.props.copyArrayGame.splice(indexAnsObj, 1)
   }
 
-  iDontKnowOption = (id)=>{
+  iDontKnowOption = (id) => {
 
     this.setState({
       ansArray: [...this.state.ansArray, "I Don't Know"],

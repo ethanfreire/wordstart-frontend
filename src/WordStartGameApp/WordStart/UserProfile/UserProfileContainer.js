@@ -32,9 +32,12 @@ componentDidMount(){
   render(){
     return(
       <div>
+
       {this.props.currentActiveUser != null
  ?
-      <UserProfileComponent  user = {this.props.currentActiveUser} onClick = {this.onClick}/>
+      <UserProfileComponent  user = {this.props.currentActiveUser}
+      onClick = {this.onClick}/>
+
 : null }
 
       </div>
