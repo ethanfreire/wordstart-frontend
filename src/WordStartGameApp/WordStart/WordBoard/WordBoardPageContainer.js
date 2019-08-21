@@ -18,7 +18,8 @@ render(){
     <UserProfileContainer />
     <BoardMenuContainer />
     <BoardContainer currentUserWords={this.props.currentUserWords}
-    deleteUserWord = {this.props.deleteUserWord}/>
+    deleteUserWord = {this.props.deleteUserWord}
+    currentActiveUser={this.props.currentActiveUser}/>
     </div>
   )
 }

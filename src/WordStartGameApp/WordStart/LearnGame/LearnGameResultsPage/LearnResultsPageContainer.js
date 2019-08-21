@@ -16,7 +16,7 @@ class LearnResultsPageContainer extends React.Component {
   }
 
   componentDidMount() {
-    this.setUserAns(this.props.currentUserWords, this.props.finalAnsArray)
+    this.setUserAns(this.props.currentActiveUser.words, this.props.finalAnsArray)
   }
 
 
@@ -36,12 +36,14 @@ onClickGoBackToBoard = () => {
 
   setUserAns = (ans, userAns) => {
 
+
       let counterCorrect = userAns.map((word, index) => {
+
         if (word.toLowerCase() === ans[index].word) {
           return word
         }
       })
-      let finalUserCorrectAns = counterCorrect.filter(word => word != undefined)
+      let finalUserCorrectAns = counterCorrect.filter(word => word != undefined )
 
       this.setState({
         wordsCorrect: finalUserCorrectAns
@@ -57,14 +59,14 @@ onClickGoBackToBoard = () => {
       <UserProfileContainer />
       I am a learn results page, with a user profile component
 
-      <FinalResultsComponent array={this.props.currentUserWords} wordsCorrect={this.state.wordsCorrect}
+      <FinalResultsComponent array={this.props.currentActiveUser.words} wordsCorrect={this.state.wordsCorrect}
       />
       <button onClick = {this.onClickGoBackToBoard} > Go Back to Board?</button>
       <button onClick = {this.onClickPlayAgain} > Play Again?</button>
 
-      {this.props.currentUserWords.map(wordObj => <ResultsCardComponent wordObj={wordObj} key={wordObj.id}
+      {this.props.currentActiveUser.words.map(wordObj => <ResultsCardComponent wordObj={wordObj} key={wordObj.id}
         id={wordObj.id}
-        array={this.props.currentUserWords}
+        array={this.props.currentActiveUser.words}
         finalAnsArray = {this.props.finalAnsArray}
 
         />)}

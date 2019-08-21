@@ -11,7 +11,7 @@ render(){
     <div>
     I am a board container with board cards
     {console.log(this.props.currentUserWords[0])}
-    {this.props.currentUserWords.map(wordObj => <WordCardComponent wordObj={wordObj} key={wordObj.id} array={this.props.currentUserWords} deleteWord={this.deleteWord} id={wordObj.id}/>)}
+    {this.props.currentActiveUser.words.map(wordObj => <WordCardComponent wordObj={wordObj} key={wordObj.id} array={this.props.currentActiveUser.words} deleteWord={this.deleteWord} id={wordObj.id}/>)}
 
     </div>
   )

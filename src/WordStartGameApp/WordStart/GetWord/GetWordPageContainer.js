@@ -173,8 +173,17 @@ class GetWordPageContainer extends React.Component {
       <GetWordPageComponent handleSubmit={this.handleSubmit} />
       <p>OR</p>
       <button onClick = {this.getRandomWord}> Search Random Word</button>
+
+
+
       </div>
     )
   }
 }
 export default withRouter(GetWordPageContainer)
+
+// add logic for on click to pass currentActiveUser.words / set state and go to wordboard page 
+// <p>OR</p>
+// <Link to = {`/wordboard`}>
+// <input type="submit" value="Go To WordBoard" />
+// </Link>

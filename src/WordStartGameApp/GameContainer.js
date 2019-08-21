@@ -124,8 +124,8 @@ class GameContainer extends React.Component {
         let filteredUserWords = this.state.currentUserWords.filter(wordObj => wordObj.id != id)
       this.setState({
         currentUserWords: [...filteredUserWords],
-        copyArrayGame: [...filteredUserWords]
-      })
+        copyArrayGame: [...filteredUserWords],
+        currentActiveUser: {...this.state.currentActiveUser, words: [...filteredUserWords]}      })
     })
 
 
@@ -149,14 +149,17 @@ class GameContainer extends React.Component {
 
         <Route exact path="/login" render={() => <LoginSignUpContainer setActiveUser={this.setActiveUser}/>} />
 
+        <Route exact path="/signup" render={() => <LoginSignUpContainer setActiveUser={this.setActiveUser}/>} />
+
         <Route exact path="/getword" render={() => <GetWordPageContainer currentActiveUser={this.state.currentActiveUser} setSearchWord={this.setSearchWord} />} />
 
         <Route exact path="/resultword" render={() => <ResultWordPageContainer
           currentActiveUser={this.state.currentActiveUser} searchWord= {this.state.currentSearchWord} updateUserInfo={this.updateUserInfo} /> } />
 
         <Route path="/wordboard" render={() => <WordBoardPageContainer  currentUserWords={this.state.currentUserWords}
-        deleteUserWord = {this.deleteUserWord
-        }/>} />
+        deleteUserWord = {this.deleteUserWord}
+        currentActiveUser={this.state.currentActiveUser}
+        />} />
 
         <Route path="/learngame" render={() => <LearnPageContainer currentUserWords={this.state.currentUserWords}
         copyArrayGame ={this.state.copyArrayGame}
