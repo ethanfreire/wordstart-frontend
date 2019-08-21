@@ -8,7 +8,7 @@ const Countdown = (props) => {
 return (
   <div>
 <Timer
-    initialTime={600000}
+    initialTime={10000}
     direction="backward"
     checkpoints={[
         {
