@@ -11,10 +11,8 @@ import WordBoardPageContainer from "/Users/ethanfreire/Desktop/wordstart-fronten
 import LearnPageContainer from "/Users/ethanfreire/Desktop/wordstart-frontend/src/WordStartGameApp/WordStart/LearnGame/LearnGamePage/LearnPageContainer.js"
 
 class GameContainer extends React.Component {
-  //maybe not need constructor here? send active user info here???
   constructor() {
     super()
-    //keep track of current user
     this.state = {
       allUsers: [],
       currentActiveUser: null,
@@ -24,19 +22,14 @@ class GameContainer extends React.Component {
       currentUserWords: [],
       currentSearchWord: {},
       searchedWords: []
-
     }
   }
-
 
   updateUserInfo= (data)=>{
     console.log("trying to update user info of", data)
     fetch("http://localhost:3000/users/")
     .then(response => response.json())
     .then(dataObject => this.setAllUsersGame(dataObject))
-
-
-
   }
 
   setAllUsersGame = (dataObject) => {
@@ -90,7 +83,6 @@ class GameContainer extends React.Component {
       currentActiveUser: foundProfile ,
       currentActiveUserUsername: foundProfile.username
     })
-    //pass this prop to user profile
   }
 
   setFinalAnsArray = (data) => {
@@ -98,8 +90,6 @@ class GameContainer extends React.Component {
       finalAnsArray: [...data]
     })
   }
-
-
 
   resetLearnGame = () => {
     this.setState({
@@ -124,8 +114,6 @@ class GameContainer extends React.Component {
         copyArrayGame: [...filteredUserWords],
         currentActiveUser: {...this.state.currentActiveUser, words: [...filteredUserWords]}      })
     })
-
-
   }
 
 
@@ -142,32 +130,37 @@ class GameContainer extends React.Component {
 
       <Switch>
 
-        <Route exact path="/" render={() => <Redirect to="/login" />} />
+        <Route exact path="/" render={() => <Redirect to="/login" />
+        }/>
 
-        <Route exact path="/login" render={() => <LoginSignUpContainer setActiveUser={this.setActiveUser}/>} />
+        <Route exact path="/login" render={() => <LoginSignUpContainer setActiveUser={this.setActiveUser}/>
+        }/>
 
-        <Route exact path="/signup" render={() => <LoginSignUpContainer setActiveUser={this.setActiveUser}/>} />
+        <Route exact path="/signup" render={() => <LoginSignUpContainer setActiveUser={this.setActiveUser}/>
+        }/>
 
-        <Route exact path="/getword" render={() => <GetWordPageContainer currentActiveUser={this.state.currentActiveUser} setSearchWord={this.setSearchWord} />} />
+        <Route exact path="/getword" render={() => <GetWordPageContainer currentActiveUser={this.state.currentActiveUser} setSearchWord={this.setSearchWord} />
+        }/>
 
         <Route exact path="/resultword" render={() => <ResultWordPageContainer
-          currentActiveUser={this.state.currentActiveUser} searchWord= {this.state.currentSearchWord} updateUserInfo={this.updateUserInfo} /> } />
+          currentActiveUser={this.state.currentActiveUser} searchWord= {this.state.currentSearchWord} updateUserInfo={this.updateUserInfo} />
+        }/>
 
         <Route path="/wordboard" render={() => <WordBoardPageContainer  currentUserWords={this.state.currentUserWords}
         deleteUserWord = {this.deleteUserWord}
-        currentActiveUser={this.state.currentActiveUser}
-        />} />
+        currentActiveUser={this.state.currentActiveUser}/>
+        }/>
 
         <Route path="/learngame" render={() => <LearnPageContainer currentUserWords={this.state.currentUserWords}
         copyArrayGame ={this.state.copyArrayGame}
-        setFinalAnsArray = {this.setFinalAnsArray}
-        />} />
+        setFinalAnsArray = {this.setFinalAnsArray}/>
+        }/>
 
         <Route path="/learnresult" render={() => <LearnResultsPageContainer currentUserWords={this.state.currentUserWords} finalAnsArray={this.state.finalAnsArray}
         resetLearnGame={this.resetLearnGame}
-        currentActiveUser = {this.state.currentActiveUser}
-        />}
-         />
+        currentActiveUser = {this.state.currentActiveUser} />
+        }/>
+        
         <Route component={NotFound} />
 
       </Switch>
@@ -176,13 +169,4 @@ class GameContainer extends React.Component {
   }
 }
 
-
-
 export default withRouter(GameContainer)
-
-// <WordStartGameContainer currentActiveUser={this.state.currentActiveUser} setSearchWord={this.setSearchWord} searchWord={this.state.currentSearchWord}/>
-
-
-//delete fetch
-// ,
-// currentActiveUser: {...this.state.currentActiveUser, words: filteredUserWords}
