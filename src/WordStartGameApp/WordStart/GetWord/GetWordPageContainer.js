@@ -1,7 +1,7 @@
 import React from 'react'
 import UserProfileContainer from '/Users/ethanfreire/Desktop/wordstart-frontend/src/WordStartGameApp/WordStart/UserProfile/UserProfileContainer.js'
 import GetWordPageComponent from '/Users/ethanfreire/Desktop/wordstart-frontend/src/WordStartGameApp/WordStart/GetWord/GetWordPage/GetWordPageComponent.js'
-import {withRouter , Link}  from "react-router-dom"
+import {withRouter}  from "react-router-dom"
 
 class GetWordPageContainer extends React.Component {
   //this need to be passed in user state info from WordStartGameContainer
@@ -100,7 +100,6 @@ class GetWordPageContainer extends React.Component {
     event.preventDefault()
 
     let searchWord = document.querySelector("#SearchWord").value
-    let key = "X-Mashape-Key"
     let value = `${process.env.REACT_APP_WORD_API_KEY}`
     let request = new Request(`https://wordsapiv1.p.mashape.com/words/${searchWord}`, {
       headers: new Headers({
@@ -119,8 +118,6 @@ class GetWordPageContainer extends React.Component {
   getRandomWord = () => {
     console.log("I am searching a random word")
 
-    let randomApi = "https://wordsapiv1.p.mashape.com/words"
-    let key = "X-Mashape-Key"
     let value = `${process.env.REACT_APP_WORD_API_KEY}`
     let request = new Request(`https://wordsapiv1.p.mashape.com/words/?random=true`,
       {
@@ -138,7 +135,6 @@ class GetWordPageContainer extends React.Component {
   searchRandomWord = (data)=>{
     console.log("looking up", data.word)
     let randomWord = data.word
-    let key = "X-Mashape-Key"
     let value = `${process.env.REACT_APP_WORD_API_KEY}`
     let request = new Request(`https://wordsapiv1.p.mashape.com/words/${randomWord}`, {
       headers: new Headers({
@@ -163,10 +159,8 @@ class GetWordPageContainer extends React.Component {
     console.log(this.props.currentActiveUser)
     return(
       <div>
-      <p>I am a get word page</p>
 
-    <UserProfileContainer />
-      I am a GetWordPageContainer, with a user profile component
+      <UserProfileContainer />
       <h1>
        Start Learning a New Word Today {this.props.currentActiveUser.username}
       </h1>
@@ -182,7 +176,7 @@ class GetWordPageContainer extends React.Component {
 }
 export default withRouter(GetWordPageContainer)
 
-// add logic for on click to pass currentActiveUser.words / set state and go to wordboard page 
+// add logic for on click to pass currentActiveUser.words / set state and go to wordboard page
 // <p>OR</p>
 // <Link to = {`/wordboard`}>
 // <input type="submit" value="Go To WordBoard" />

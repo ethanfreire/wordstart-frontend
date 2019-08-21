@@ -5,7 +5,6 @@ import { withRouter } from 'react-router-dom'
 
 
 class LoginSignUpContainer extends React.Component {
-  //maybe nno needed,I need to get login in user info
 constructor(){
   super()
   this.state = {
@@ -52,7 +51,7 @@ handleLogin = (event) => {
     password: document.querySelector("#currentPassword").value
   }
 
-  if (event.target.querySelector("#currentUsername").value == "" || event.target.querySelector("#currentPassword").value == "" ){
+  if (event.target.querySelector("#currentUsername").value === "" || event.target.querySelector("#currentPassword").value === "" ){
     alert("do not leave password or username blank")
   }
   else if(!this.state.allUsername.includes(loginUser.username
@@ -79,7 +78,7 @@ handleSubmit = (event) => {
   event.preventDefault()
   console.log("trying to create a user with", event.target)
 
-  if (event.target.querySelector("#newUsername").value == "" || event.target.querySelector("#newPassword").value == "" ){
+  if (event.target.querySelector("#newUsername").value === "" || event.target.querySelector("#newPassword").value === "" ){
     alert("do not leave password or username blank")
   }else if (this.state.allUsername.includes(event.target.querySelector("#newUsername").value)){
     alert("Sorry this username is already taken. Please enter a new one.")
@@ -112,9 +111,7 @@ handleSubmit = (event) => {
   render(){
     return(
       <div>
-      <p>I am a loginSignUp page</p>
 
-      You hit me I am a LoginSignupcontainer
      { this.props.location.pathname === "/login" ?
      <LoginPageComponent handleLogin={this.handleLogin}/>
      :      null

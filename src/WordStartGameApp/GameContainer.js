@@ -1,14 +1,11 @@
 
 import React from 'react'
-
 import LoginSignUpContainer from "/Users/ethanfreire/Desktop/wordstart-frontend/src/WordStartGameApp/Login-SignUp/LoginSignUpContainer.js"
 import NotFound from "/Users/ethanfreire/Desktop/wordstart-frontend/src/WordStartGameApp/NotFound.js"
-
 import { Route, Switch, Redirect, withRouter } from 'react-router-dom'
 import UserProfileContainer from "/Users/ethanfreire/Desktop/wordstart-frontend/src/WordStartGameApp/WordStart/UserProfile/UserProfileContainer.js"
 import GetWordPageContainer from "/Users/ethanfreire/Desktop/wordstart-frontend/src/WordStartGameApp/WordStart/GetWord/GetWordPageContainer.js"
 import LearnResultsPageContainer from "/Users/ethanfreire/Desktop/wordstart-frontend/src/WordStartGameApp/WordStart/LearnGame/LearnGameResultsPage/LearnResultsPageContainer.js"
-import LearnGameContainer from "/Users/ethanfreire/Desktop/wordstart-frontend/src/WordStartGameApp/WordStart/LearnGame/LearnGamePage/LearnPageContainer.js"
 import ResultWordPageContainer from "/Users/ethanfreire/Desktop/wordstart-frontend/src/WordStartGameApp/WordStart/ResultWord/ResultWordPageContainer.js"
 import WordBoardPageContainer from "/Users/ethanfreire/Desktop/wordstart-frontend/src/WordStartGameApp/WordStart/WordBoard/WordBoardPageContainer.js"
 import LearnPageContainer from "/Users/ethanfreire/Desktop/wordstart-frontend/src/WordStartGameApp/WordStart/LearnGame/LearnGamePage/LearnPageContainer.js"
@@ -112,7 +109,7 @@ class GameContainer extends React.Component {
 
   deleteUserWord = (id) => {
     console.log("trying to delete this id ", id)
-    let wordToDelete = this.state.currentActiveUser.words.find(wordObj => wordObj.id == id)
+    let wordToDelete = this.state.currentActiveUser.words.find(wordObj => wordObj.id === id)
     console.log("delete this word", wordToDelete)
 
     fetch(`http://localhost:3000/words/${wordToDelete.id}`,{
@@ -121,7 +118,7 @@ class GameContainer extends React.Component {
     .then(response => response.json())
     .then(data => {
       console.log("remove from front end",data)
-        let filteredUserWords = this.state.currentUserWords.filter(wordObj => wordObj.id != id)
+        let filteredUserWords = this.state.currentUserWords.filter(wordObj => wordObj.id !== id)
       this.setState({
         currentUserWords: [...filteredUserWords],
         copyArrayGame: [...filteredUserWords],

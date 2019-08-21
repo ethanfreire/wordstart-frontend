@@ -6,7 +6,7 @@ const LoginPageComponent = (props)=>{
   //on click of login make a get request and check(auth) if user exist and if yes continue if no alert user that username or password is incorrect, and if yes fill in Gamecontiner state the current user state info
   return(
     <div>
-      You have hit the Login page form
+
       <h1>
         Welcome To WordStart
       </h1>
@@ -20,7 +20,7 @@ const LoginPageComponent = (props)=>{
               </h4>
     <form onSubmit = {props.handleLogin}>
       <div>
-      <p>Please login in below</p>
+      <h1>Please login in below</h1>
         <label htmlFor="currentUsername">
           <div>
             UserName:
@@ -37,9 +37,9 @@ const LoginPageComponent = (props)=>{
       </div>
     <div>
       <div>
-      <p>
+      <h1>
         If you don't have a WordStart account please click the button below.
-        </p>
+        </h1>
       </div>
       <Link to = {`/signup`}>
         <input type="submit" value="Create An Account" />

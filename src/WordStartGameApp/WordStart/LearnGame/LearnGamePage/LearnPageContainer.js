@@ -2,7 +2,6 @@ import React from 'react'
 import UserProfileContainer from '/Users/ethanfreire/Desktop/wordstart-frontend/src/WordStartGameApp/WordStart/UserProfile/UserProfileContainer.js'
 import Countdown from "/Users/ethanfreire/Desktop/wordstart-frontend/src/WordStartGameApp/WordStart/LearnGame/LearnGamePage/LearnPageComponents/Countdown.js"
 import GameSlideComponent from "/Users/ethanfreire/Desktop/wordstart-frontend/src/WordStartGameApp/WordStart/LearnGame/LearnGamePage/LearnPageComponents/GameSlideComponent.js"
-import LearnResultsPageContainer from "/Users/ethanfreire/Desktop/wordstart-frontend/src/WordStartGameApp/WordStart/LearnGame/LearnGameResultsPage/LearnResultsPageContainer.js"
 import { withRouter } from 'react-router-dom'
 
 class LearnPageContainer extends React.Component {
@@ -64,13 +63,10 @@ class LearnPageContainer extends React.Component {
     console.log(this.props)
     return(
       <div>
-      <p>I am a learn game page </p>
       <UserProfileContainer />
       <Countdown timerAction = {this.timerAction}/>
-      I am a learn game page, with a user profile component
 
-      <h1>    Given The Following Info
-</h1>
+      <h1> Given The Following Info </h1>
 {this.props.copyArrayGame.map(wordObj => <GameSlideComponent wordObj={wordObj} key={wordObj.id} array={this.props.copyArrayGame}  id={wordObj.id} setAnsArray={this.setAnsArray} iDontKnowOption={this.iDontKnowOption}/>)}
 <button onClick = {this.onClick}>End Game</button>
       </div>

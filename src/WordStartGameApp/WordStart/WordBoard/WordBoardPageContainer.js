@@ -12,11 +12,10 @@ render(){
   console.log(this.props.currentActiveUser)
   return(
     <div>
-    <p>I am a Word Board page</p>
-    I am a word board page container, with a userProfilecontainer.
-    <h1>Here are your searched words</h1>
+
     <UserProfileContainer />
     <BoardMenuContainer />
+    <h1>Here are your searched words</h1>
     <BoardContainer currentUserWords={this.props.currentUserWords}
     deleteUserWord = {this.props.deleteUserWord}
     currentActiveUser={this.props.currentActiveUser}/>

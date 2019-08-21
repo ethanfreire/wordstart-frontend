@@ -1,7 +1,7 @@
 import React from 'react'
 import UserProfileContainer from '/Users/ethanfreire/Desktop/wordstart-frontend/src/WordStartGameApp/WordStart/UserProfile/UserProfileContainer.js'
 import ResultWordComponent from '/Users/ethanfreire/Desktop/wordstart-frontend/src/WordStartGameApp/WordStart/ResultWord/ResultWordPage/ResultWordComponent.js'
-import {withRouter , Link}  from "react-router-dom"
+import {Link}  from "react-router-dom"
 import CanvasDraw from "react-canvas-draw";
 
 
@@ -28,9 +28,8 @@ render(){
   console.log("I am login in as ",this.props.currentActiveUser)
   return(
     <div>
-    <p>I am a results page</p>
+
     <UserProfileContainer />
-    I am a results word page container, with a userProfilecontainer
     <ResultWordComponent searchWord={this.props.searchWord} handleSubmit={this.handleSubmit}/>
     <div>
       <h1>Practice Writing Your Word On The Canvas</h1>

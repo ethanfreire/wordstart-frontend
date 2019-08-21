@@ -10,13 +10,8 @@ class LearnGameContainer extends React.Component {
   render(){
     return(
       <div>
-      <p>I am a learn  container</p>
       <UserProfileContainer />
-      I am a learn container , with a user profile component
-
-
-
-
+      
       { this.props.location.pathname === "/learngame" ?
       <LearnPageContainer />
       :  null

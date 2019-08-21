@@ -1,11 +1,9 @@
 import React from 'react'
-import {Link} from 'react-router-dom'
 
 const SignUpPageComponent = (props)=>{
   //on submit of this form you make a post request on users DB to add new user
   return(
     <div>
-    You have hit the sign up page form
     <h1>
     Signing Up for a Word Start account
     </h1>
