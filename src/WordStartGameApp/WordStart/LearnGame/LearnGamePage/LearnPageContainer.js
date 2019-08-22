@@ -70,9 +70,13 @@ class LearnPageContainer extends React.Component {
       <UserProfileContainer />
       <Countdown timerAction = {this.timerAction}/>
         <h1> Given The Following Info </h1>
-      <GameSlideComponent   wordObj={this.props.copyArrayGame[this.state.currentSlideIndex]} array={this.props.copyArrayGame}  id={this.props.copyArrayGame[this.state.currentSlideIndex].id} setAnsArray={this.setAnsArray} iDontKnowOption={this.iDontKnowOption}/>
-
-      <button className="ui button" onClick = {this.onClick}>End Game</button>
+        {this.props.copyArrayGame.length > 0 ? (
+          this.props.copyArrayGame[this.state.currentSlideIndex].id ? (
+            <GameSlideComponent   wordObj={this.props.copyArrayGame[this.state.currentSlideIndex]} array={this.props.copyArrayGame}  id={this.props.copyArrayGame[this.state.currentSlideIndex].id} setAnsArray={this.setAnsArray} iDontKnowOption={this.iDontKnowOption}/>
+          ) : null
+        ) :null
+      }
+<button className="ui button" onClick = {this.onClick}>End Game</button>
 
 
       </div>
