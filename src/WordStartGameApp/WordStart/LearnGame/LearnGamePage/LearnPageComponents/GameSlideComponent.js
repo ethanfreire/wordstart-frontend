@@ -35,24 +35,24 @@ class GameSlideComponent extends React.Component {
 
           <div className="description">
             <form className="ui form" onSubmit = {this.onSubmit}>
-              <label >What is this Word:
+              <label><h2>What is this Word:</h2>
               <input onChange = {this.onChange} type="text" data-id={this.props.id} required  />
               </label>
               <p></p>
               <div>
-                <label>Definition:{this.props.wordObj.definition}</label>
+                <label><h3>Definition:{this.props.wordObj.definition}</h3></label>
               </div>
               <p></p>
               <div>
-                <label>Examples:{this.props.wordObj.examples}</label>
+                <label><h3>Examples:{this.props.wordObj.examples}</h3></label>
               </div>
               <p></p>
               <div>
-                <label>Part of Speech:{this.props.wordObj.part_of_speech}</label>
+                <label><h3>Part of Speech:{this.props.wordObj.part_of_speech}</h3></label>
               </div>
               <p></p>
               <div>
-                <label>Synonym:{this.props.wordObj.synonym}</label>
+                <label><h3>Synonym:{this.props.wordObj.synonym}</h3></label>
               </div>
               <p></p>
               <button className="ui button" type="submit">Submit</button>

@@ -9,7 +9,8 @@ class LearnPageContainer extends React.Component {
     super()
     this.state = {
       ansArray : [],
-      copyArray: []
+      copyArray: [],
+      currentSlide: null
     }
   }
 
