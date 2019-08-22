@@ -89,6 +89,41 @@ will-change: '';
 
   }
 
+  .cards-slider {
+  overflow: hidden;
+	white-space: nowrap;
+	width: 500px;
+	height: 100%;
+	position: relative;
+	display: inline-block;
+  background: #e3e3e3;
+  margin: 5px 0;
+  border: 1px solid #D8D8D8;
+  box-shadow: 1px 1px 10px #D8D8D8;
+}
+
+.fixedDeleteButtonSpacing.ui.attached.button {
+    position: unset;
+    display: block;
+    margin: auto;
+    border-radius: 0;
+    -webkit-box-shadow: 0 0 0 1px rgba(34,36,38,.15)!important;
+    box-shadow: 0 0 0 1px rgba(34,36,38,.15)!important;
+}
+
+.fixedMoreInfoSpacing.ui.dropdown {
+    cursor: pointer;
+    position: relative;
+    display: inline-block;
+    outline: 0;
+    text-align: center;
+    -webkit-transition: width .1s ease,-webkit-box-shadow .1s ease;
+    transition: width .1s ease,-webkit-box-shadow .1s ease;
+    transition: box-shadow .1s ease,width .1s ease;
+    transition: box-shadow .1s ease,width .1s ease,-webkit-box-shadow .1s ease;
+    -webkit-tap-highlight-color: transparent;
+}
+
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
   height: 40vmin;

@@ -42,7 +42,7 @@ class GameSlideComponent extends React.Component {
               <div>
                 <label>Definition:{this.props.wordObj.definition}</label>
               </div>
-<p></p>
+              <p></p>
               <div>
                 <label>Examples:{this.props.wordObj.examples}</label>
               </div>
