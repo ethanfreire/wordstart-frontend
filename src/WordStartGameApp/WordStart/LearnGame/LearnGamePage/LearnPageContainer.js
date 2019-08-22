@@ -68,7 +68,7 @@ class LearnPageContainer extends React.Component {
 
       <h1> Given The Following Info </h1>
 {this.props.copyArrayGame.map(wordObj => <GameSlideComponent wordObj={wordObj} key={wordObj.id} array={this.props.copyArrayGame}  id={wordObj.id} setAnsArray={this.setAnsArray} iDontKnowOption={this.iDontKnowOption}/>)}
-<button onClick = {this.onClick}>End Game</button>
+<button className="ui button" onClick = {this.onClick}>End Game</button>
       </div>
     )
   }

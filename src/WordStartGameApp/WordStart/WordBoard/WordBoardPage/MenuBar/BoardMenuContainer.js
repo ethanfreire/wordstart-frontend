@@ -14,10 +14,10 @@ render(){
     <div>
     <div>
     <Link to = "/learngame">
-      <button > Learn Game</button>
+      <button className="ui button"> Learn Game</button>
     </Link>
     <Link to = "/getword">
-      <button > Search New Word</button>
+      <button className="ui button"> Search New Word</button>
     </Link>
 
     </div>

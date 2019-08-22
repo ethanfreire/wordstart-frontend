@@ -31,21 +31,32 @@ render(){
 
     <UserProfileContainer />
     <ResultWordComponent searchWord={this.props.searchWord} handleSubmit={this.handleSubmit}/>
+    <p></p>
     <div>
       <h1>Practice Writing Your Word On The Canvas</h1>
-      <div >
+      <div className="ui segment addCanvasBorder">
       <CanvasDraw ref={canvasDraw => (this.saveableCanvas = canvasDraw)} canvasWidth={this.state.width}/>
   </div>
-      <button onClick={() => { this.saveableCanvas.clear(); }}>
+      <button className="ui button spacingResultButton" onClick={() => { this.saveableCanvas.clear(); }}>
         Clear
       </button>
     </div>
+    <p></p>
+    <div>
     <Link to = "/getword">
-      <button > Search Another Word</button>
+      <button className="ui button"> Search Another Word</button>
     </Link>
     <Link to = "/wordboard">
-      <button > Go To Word Board</button>
+      <button className="ui button"> Go To Word Board</button>
     </Link>
+    </div>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+
+
     </div>
   )
 }

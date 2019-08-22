@@ -10,7 +10,7 @@ const GetWordPageComponent = (props)=>{
       <label htmlFor="SearchWord">Search a new Word: </label>
       <input type="text" id="SearchWord" name="word" placeholder="please enter a word" />
       </div>
-      <button class="ui button" type="submit">
+      <button className ="ui button" type="submit">
       Submit
       </button>
     </form>

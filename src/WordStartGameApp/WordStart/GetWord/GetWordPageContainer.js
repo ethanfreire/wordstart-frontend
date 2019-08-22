@@ -169,7 +169,7 @@ class GetWordPageContainer extends React.Component {
       <div className="ui large header fixSpacingOR">
       OR
       </div>
-      <div>
+      <div className="loading">
       <button className="ui button" onClick = {this.getRandomWord}> Search Random Word</button>
       </div>
 

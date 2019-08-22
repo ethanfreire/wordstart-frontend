@@ -26,29 +26,44 @@ class GameSlideComponent extends React.Component {
 
   render(){
   return(
-    <div>
-    <h1>{this.props.array.indexOf(this.props.wordObj) + 1 } Word Out of {this.props.array.length} </h1>
-    <form onSubmit = {this.onSubmit}>
-    <label >What is this Word:
-      <input onChange = {this.onChange} type="text" data-id={this.props.id} required  />
-    </label>
-<div>
-    <label>Definition:{this.props.wordObj.definition}</label>
-    </div>
-    <div>
-    <label>Examples:{this.props.wordObj.examples}</label>
-    </div>
-    <div>
-    <label>Part of Speech:{this.props.wordObj.part_of_speech}</label>
-    </div>
-    <div>
-    <label>Synonym:{this.props.wordObj.synonym}</label>
-    </div>
-    <input type="submit" value="Submit" />
-    <button onClick={this.onClick}> I don't know</button>
-    </form>
+  <div>
 
+    <div className="ui centered card fixingLearnCard">
+      <div className="card">
+        <div className="content">
+          <h1 className="header">{this.props.array.indexOf(this.props.wordObj) + 1 } Word Out of {this.props.array.length} </h1>
+
+          <div className="description">
+            <form className="ui form" onSubmit = {this.onSubmit}>
+              <label >What is this Word:
+              <input onChange = {this.onChange} type="text" data-id={this.props.id} required  />
+              </label>
+              <p></p>
+              <div>
+                <label>Definition:{this.props.wordObj.definition}</label>
+              </div>
+<p></p>
+              <div>
+                <label>Examples:{this.props.wordObj.examples}</label>
+              </div>
+              <p></p>
+              <div>
+                <label>Part of Speech:{this.props.wordObj.part_of_speech}</label>
+              </div>
+              <p></p>
+              <div>
+                <label>Synonym:{this.props.wordObj.synonym}</label>
+              </div>
+              <p></p>
+              <button className="ui button" type="submit">Submit</button>
+              <button className="ui button" onClick={this.onClick}>I don't know</button>
+              <p></p>
+            </form>
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
   )
 }
 }

@@ -15,6 +15,7 @@ render(){
 
     <UserProfileContainer />
     <BoardMenuContainer />
+    <h1>Welcome To Your WordBoard {this.props.currentActiveUser.username}</h1>
     <h1>Here are your searched words</h1>
     <BoardContainer currentUserWords={this.props.currentUserWords}
     deleteUserWord = {this.props.deleteUserWord}

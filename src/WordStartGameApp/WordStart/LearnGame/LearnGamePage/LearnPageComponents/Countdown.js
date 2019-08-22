@@ -7,6 +7,8 @@ const Countdown = (props) => {
 
 return (
   <div>
+  <i className="hourglass half icon"></i>
+
 <Timer
     initialTime={600000}
     direction="backward"
