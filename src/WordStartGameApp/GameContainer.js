@@ -160,7 +160,7 @@ class GameContainer extends React.Component {
         resetLearnGame={this.resetLearnGame}
         currentActiveUser = {this.state.currentActiveUser} />
         }/>
-        
+
         <Route component={NotFound} />
 
       </Switch>

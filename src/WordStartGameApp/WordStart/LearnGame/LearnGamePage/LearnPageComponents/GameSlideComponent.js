@@ -35,8 +35,9 @@ class GameSlideComponent extends React.Component {
 
           <div className="description">
             <form className="ui form" onSubmit = {this.onSubmit}>
-              <label><h2>What is this Word:</h2>
-              <input onChange = {this.onChange} type="text" data-id={this.props.id} required  />
+              <label><h2>What is this Word: </h2>
+              <input onChange = {this.onChange} type="text" data-id={this.props.id}
+              placeholder="please enter an answer" required  />
               </label>
               <p></p>
               <div>

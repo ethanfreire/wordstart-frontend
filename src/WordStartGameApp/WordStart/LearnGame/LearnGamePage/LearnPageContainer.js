@@ -10,7 +10,7 @@ class LearnPageContainer extends React.Component {
     this.state = {
       ansArray : [],
       copyArray: [],
-      currentSlide: null
+      currentSlideIndex: 0
     }
   }
 
@@ -25,6 +25,7 @@ class LearnPageContainer extends React.Component {
 
     let ansObjData = this.props.copyArrayGame.find(word => word.id === ansObjId)
     let indexAnsObj = this.props.copyArrayGame.indexOf(ansObjData)
+    document.querySelector("#root > div > div > div:nth-child(2) > div:nth-child(4) > div > div > div > div > form > label > input[type=text]").value = ""
     this.props.copyArrayGame.splice(indexAnsObj, 1)
   }
 
@@ -37,6 +38,7 @@ class LearnPageContainer extends React.Component {
 
     let ansObjData = this.props.copyArrayGame.find(word => word.id === ansObjId)
     let indexAnsObj = this.props.copyArrayGame.indexOf(ansObjData)
+    document.querySelector("#root > div > div > div:nth-child(2) > div:nth-child(4) > div > div > div > div > form > label > input[type=text]").value = ""
     this.props.copyArrayGame.splice(indexAnsObj, 1)
 
   }
@@ -62,15 +64,19 @@ class LearnPageContainer extends React.Component {
     }
   render(){
     console.log(this.props)
+    console.log(this.props.copyArrayGame[this.state.currentSlideIndex])
     return(
       <div>
       <UserProfileContainer />
       <Countdown timerAction = {this.timerAction}/>
+        <h1> Given The Following Info </h1>
+      <GameSlideComponent   wordObj={this.props.copyArrayGame[this.state.currentSlideIndex]} array={this.props.copyArrayGame}  id={this.props.copyArrayGame[this.state.currentSlideIndex].id} setAnsArray={this.setAnsArray} iDontKnowOption={this.iDontKnowOption}/>
 
-      <h1> Given The Following Info </h1>
-{this.props.copyArrayGame.map(wordObj => <GameSlideComponent wordObj={wordObj} key={wordObj.id} array={this.props.copyArrayGame}  id={wordObj.id} setAnsArray={this.setAnsArray} iDontKnowOption={this.iDontKnowOption}/>)}
-<button className="ui button" onClick = {this.onClick}>End Game</button>
+      <button className="ui button" onClick = {this.onClick}>End Game</button>
+
+
       </div>
+
     )
   }
 }
