@@ -165,9 +165,13 @@ class GetWordPageContainer extends React.Component {
        Start Learning a New Word Today {this.props.currentActiveUser.username}
       </h1>
       <GetWordPageComponent handleSubmit={this.handleSubmit} />
-      <p>OR</p>
-      <button onClick = {this.getRandomWord}> Search Random Word</button>
 
+      <div className="ui large header fixSpacingOR">
+      OR
+      </div>
+      <div>
+      <button className="ui button" onClick = {this.getRandomWord}> Search Random Word</button>
+      </div>
 
 
       </div>

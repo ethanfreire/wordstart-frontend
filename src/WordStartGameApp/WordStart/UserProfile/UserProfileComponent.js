@@ -5,10 +5,25 @@ const UserProfileComponent = (props)=>{
   console.log(props)
   return(
     <div>
+
+    <div className="ui four item menu">
+    <div className="header item">
     <h1>Word Start</h1>
-    <p>Random Word: {randomWordOfTheDay}</p>
-   <div>  I am logged in as {props.user.username}</div>
-   <button onClick = {props.onClick}> LogOut </button>
+    </div>
+
+    <div className="header item">
+    Random Word: {randomWordOfTheDay}
+    </div>
+    <div className="header item">
+
+    Hi, {props.user.username}
+   </div>
+   <div className="header item">
+
+   <button className="ui button" onClick = {props.onClick}> LogOut </button>
+   </div>
+   </div>
+
     </div>
   )
 }

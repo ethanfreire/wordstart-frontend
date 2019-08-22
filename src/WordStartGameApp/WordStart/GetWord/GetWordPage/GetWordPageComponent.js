@@ -5,10 +5,14 @@ const GetWordPageComponent = (props)=>{
   return(
     <div>
 
-    <form onSubmit = {props.handleSubmit}>
+    <form className="ui form" onSubmit = {props.handleSubmit}>
+    <div className="field">
       <label htmlFor="SearchWord">Search a new Word: </label>
       <input type="text" id="SearchWord" name="word" placeholder="please enter a word" />
-      <input type="submit" value="Submit" />
+      </div>
+      <button class="ui button" type="submit">
+      Submit
+      </button>
     </form>
 
     </div>

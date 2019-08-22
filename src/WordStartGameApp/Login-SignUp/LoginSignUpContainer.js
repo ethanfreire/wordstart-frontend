@@ -39,9 +39,6 @@ this.setState({
 })
 }
 
-
-
-
 handleLogin = (event) => {
   event.preventDefault()
 
@@ -65,13 +62,13 @@ handleLogin = (event) => {
 
   }
 }
+
 findLoginUser =(loginUser) =>{
   console.log("find me ", loginUser)
   let foundUser = this.state.allUsers.find( profile => profile.username === loginUser.username)
   this.props.setActiveUser(foundUser)
 
 }
-
 
 //handle submit make a fecth POST call to add user to DB
 handleSubmit = (event) => {
@@ -105,8 +102,6 @@ handleSubmit = (event) => {
   })
 }
 }
-
-
 
   render(){
     return(

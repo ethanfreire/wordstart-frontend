@@ -1,6 +1,23 @@
 .App {
   text-align: center;
 }
+.centerthis{
+  padding: 300px;
+}
+.fixSpacingOR.ui.header {
+    border: none;
+    margin: 1rem;
+    margin-top: 1rem;
+    margin-right: 1rem;
+    margin-bottom: 1rem;
+    margin-left: 1rem;
+    padding: 0 0;
+    font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
+    font-weight: 700;
+    line-height: 1.28571429em;
+    text-transform: none;
+    color: rgba(0,0,0,.87);
+  }
 
 .App-logo {
   animation: App-logo-spin infinite 20s linear;

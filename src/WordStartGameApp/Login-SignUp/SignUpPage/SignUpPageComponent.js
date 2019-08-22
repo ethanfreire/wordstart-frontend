@@ -3,24 +3,28 @@ import React from 'react'
 const SignUpPageComponent = (props)=>{
   //on submit of this form you make a post request on users DB to add new user
   return(
-    <div>
-    <h1>
+    <div className="centerthis" >
+    <h1  >
     Signing Up for a Word Start account
     </h1>
-    <form onSubmit = {props.handleSubmit}>
+
+    <form class="ui form" onSubmit = {props.handleSubmit}>
+    <div class="field">
       <label htmlFor="newUsername">
-      <div>
         UserName:
-          <input type="text" id="newUsername"name="username" placeholder="please enter a username" />
-          </div>
       </label>
+      <input type="text" id="newUsername"name="username" placeholder="please enter a username" />
+      </div>
+
+      <div class="field">
       <label htmlFor="newPassword">
-      <div>
         Password:
-          <input type="text" id="newPassword" name="password" placeholder="please enter a password" />
-          </div>
       </label>
-            <input type="submit" value="Create An Account" />
+      <input type="text" id="newPassword" name="password" placeholder="please enter a password" />
+      </div>
+      <button class="ui button" type="submit">
+      Create An Account
+      </button>
     </form>
     </div>
   )
