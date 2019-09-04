@@ -1,4 +1,3 @@
-
 import React from 'react'
 import LoginSignUpContainer from "/Users/ethanfreire/Desktop/wordstart-frontend/src/WordStartGameApp/Login-SignUp/LoginSignUpContainer.js"
 import NotFound from "/Users/ethanfreire/Desktop/wordstart-frontend/src/WordStartGameApp/NotFound.js"
@@ -27,7 +26,7 @@ class GameContainer extends React.Component {
 
   updateUserInfo= (data)=>{
     console.log("trying to update user info of", data)
-    fetch("http://localhost:3000/users/")
+    fetch("https://wordstart-backend.herokuapp.com/users/")
     .then(response => response.json())
     .then(dataObject => this.setAllUsersGame(dataObject))
   }
@@ -48,7 +47,6 @@ class GameContainer extends React.Component {
       this.setState({
         currentActiveUser: updatedUserInfo ,
         currentActiveUserUsername: updatedUserInfo.username
-
       })
       this.setCopyArray(this.state.currentUserWords)
   }
@@ -56,13 +54,18 @@ class GameContainer extends React.Component {
   setCopyArray = (data) => {
     this.setState({
       copyArrayGame:this.state.currentUserWords
+    })
+  }
 
+  setCopyArrayWordBoard = (data) => {
+    console.log("let set copy array when I'm in wordboard", data)
+    this.setState({
+      copyArrayGame:this.state.currentUserWords
     })
   }
 
   setSearchWord = (data) => {
     console.log("you searched for ", data)
-
     this.setState({
       searchedWords: [...this.state.searchedWords, data],
       currentSearchWord: data
@@ -99,10 +102,8 @@ class GameContainer extends React.Component {
 
   deleteUserWord = (id) => {
     console.log("trying to delete this id ", id)
-    let wordToDelete = this.state.currentActiveUser.words.find(wordObj => wordObj.id === id)
-    console.log("delete this word", wordToDelete)
 
-    fetch(`http://localhost:3000/words/${wordToDelete.id}`,{
+    fetch(`https://wordstart-backend.herokuapp.com/words/${id}`,{
       method: 'DELETE'
     })
     .then(response => response.json())
@@ -112,58 +113,55 @@ class GameContainer extends React.Component {
       this.setState({
         currentUserWords: [...filteredUserWords],
         copyArrayGame: [...filteredUserWords],
-        currentActiveUser: {...this.state.currentActiveUser, words: [...filteredUserWords]}      })
+        currentActiveUser: {...this.state.currentActiveUser, words: [...filteredUserWords]} })
     })
   }
 
-
   render() {
-
     return (
       <div>
-      {this.state.currentActiveUser != null ?
+        {this.state.currentActiveUser != null ?
         (<div>
           <UserProfileContainer currentActiveUser={this.state.currentActiveUser}/>
 
         </div>) :
-      null }
+        null }
+        <Switch>
+          <Route exact path="/" render={() => <Redirect to="/login" />
+          }/>
 
-      <Switch>
+          <Route exact path="/login" render={() => <LoginSignUpContainer setActiveUser={this.setActiveUser}/>
+          }/>
 
-        <Route exact path="/" render={() => <Redirect to="/login" />
-        }/>
+          <Route exact path="/signup" render={() => <LoginSignUpContainer setActiveUser={this.setActiveUser}/>
+          }/>
 
-        <Route exact path="/login" render={() => <LoginSignUpContainer setActiveUser={this.setActiveUser}/>
-        }/>
+          <Route exact path="/getword" render={() => <GetWordPageContainer currentActiveUser={this.state.currentActiveUser} setSearchWord={this.setSearchWord} />
+          }/>
 
-        <Route exact path="/signup" render={() => <LoginSignUpContainer setActiveUser={this.setActiveUser}/>
-        }/>
-
-        <Route exact path="/getword" render={() => <GetWordPageContainer currentActiveUser={this.state.currentActiveUser} setSearchWord={this.setSearchWord} />
-        }/>
-
-        <Route exact path="/resultword" render={() => <ResultWordPageContainer
+          <Route exact path="/resultword" render={() => <ResultWordPageContainer
           currentActiveUser={this.state.currentActiveUser} searchWord= {this.state.currentSearchWord} updateUserInfo={this.updateUserInfo} />
-        }/>
+          }/>
 
-        <Route path="/wordboard" render={() => <WordBoardPageContainer  currentUserWords={this.state.currentUserWords}
-        deleteUserWord = {this.deleteUserWord}
-        currentActiveUser={this.state.currentActiveUser}/>
-        }/>
+          <Route path="/wordboard" render={() => <WordBoardPageContainer  currentUserWords={this.state.currentUserWords}
+          deleteUserWord = {this.deleteUserWord}
+          currentActiveUser={this.state.currentActiveUser}
+          setCopyArrayWordBoard = {this.setCopyArrayWordBoard}/>
+          }/>
 
-        <Route path="/learngame" render={() => <LearnPageContainer currentUserWords={this.state.currentUserWords}
-        copyArrayGame ={this.state.copyArrayGame}
-        setFinalAnsArray = {this.setFinalAnsArray}/>
-        }/>
+          <Route path="/learngame" render={() => <LearnPageContainer currentUserWords={this.state.currentUserWords}
+          copyArrayGame ={this.state.copyArrayGame}
+          setFinalAnsArray = {this.setFinalAnsArray}/>
+          }/>
 
-        <Route path="/learnresult" render={() => <LearnResultsPageContainer currentUserWords={this.state.currentUserWords} finalAnsArray={this.state.finalAnsArray}
-        resetLearnGame={this.resetLearnGame}
-        currentActiveUser = {this.state.currentActiveUser} />
-        }/>
-        
-        <Route component={NotFound} />
+          <Route path="/learnresult" render={() => <LearnResultsPageContainer       currentUserWords={this.state.currentUserWords} finalAnsArray={this.state.finalAnsArray}
+          resetLearnGame={this.resetLearnGame}
+          currentActiveUser = {this.state.currentActiveUser} />
+          }/>
 
-      </Switch>
+          <Route component={NotFound} />
+
+        </Switch>
       </div>
     )
   }

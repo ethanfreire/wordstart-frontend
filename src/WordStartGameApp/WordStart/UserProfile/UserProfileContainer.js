@@ -2,52 +2,40 @@ import React from 'react'
 import UserProfileComponent from "/Users/ethanfreire/Desktop/wordstart-frontend/src/WordStartGameApp/WordStart/UserProfile/UserProfileComponent.js"
 
 class UserProfileContainer extends React.Component {
-
-constructor(){
-  super()
-  this.state={
+  constructor(){
+    super()
+    this.state={
     loggedIn:{}
+      }
   }
-}
 
-setLoggedIn = ()=> {
-  console.log(this.props.currentActiveUser)
-  this.setState({
-    loggedIn: this.props.currentActiveUser
-  })
-}
+  setLoggedIn = ()=> {
+      console.log(this.props.currentActiveUser)
+      this.setState({
+        loggedIn: this.props.currentActiveUser
+      })
+  }
 
-onClick = () => {
-  window.location.href = 'http://localhost:3001/login';
-}
+  onClick = () => {
+      window.location.href = 'http://localhost:3000/login';
+  }
 
-componentDidMount(){
-
-  this.setState({
-    loggedIn: this.props.currentActiveUser
-  })
-}
+  componentDidMount(){
+      this.setState({
+        loggedIn: this.props.currentActiveUser
+      })
+  }
 
 
   render(){
     return(
       <div>
-
-      {this.props.currentActiveUser != null
- ?
-      <UserProfileComponent  user = {this.props.currentActiveUser}
-      onClick = {this.onClick}/>
-
-: null }
-
+        {this.props.currentActiveUser != null ?
+          <UserProfileComponent  user = {this.props.currentActiveUser}
+          onClick = {this.onClick}/>
+          : null }
       </div>
     )
   }
 }
 export default UserProfileContainer
-
-
-//       {!!document.querySelector("#newUsername") == true
-//  ?       <UserProfileComponent loggedIn = {this.setLoggedIn()}/> :
-//       null
-// }
