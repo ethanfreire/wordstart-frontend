@@ -4,9 +4,6 @@ import ResultsCardComponent from "/Users/ethanfreire/Desktop/wordstart-frontend/
 import FinalResultsComponent from "/Users/ethanfreire/Desktop/wordstart-frontend/src/WordStartGameApp/WordStart/LearnGame/LearnGameResultsPage/FinalResults/FinalResultsComponent.js"
 import {withRouter}  from "react-router-dom"
 
-
-
-
 class LearnResultsPageContainer extends React.Component {
   constructor(){
     super()
@@ -18,7 +15,6 @@ class LearnResultsPageContainer extends React.Component {
   componentDidMount() {
     this.setUserAns(this.props.currentActiveUser.words, this.props.finalAnsArray)
   }
-
 
   onClickPlayAgain = ()=> {
     this.props.resetLearnGame()
@@ -40,65 +36,29 @@ class LearnResultsPageContainer extends React.Component {
           return word
         }
       })
-
       let finalUserCorrectAns = counterCorrect.filter(word => word !== undefined )
-      this.setState({
-        wordsCorrect: finalUserCorrectAns
+        this.setState({
+          wordsCorrect: finalUserCorrectAns
       })
   }
 
   render(){
-    console.log(this.props)
     return(
       <div>
-      <UserProfileContainer />
-      <FinalResultsComponent array={this.props.currentActiveUser.words} wordsCorrect={this.state.wordsCorrect}
-      />
-      <p></p>
-      <button className="ui button" onClick = {this.onClickGoBackToBoard} > Go Back to Board?</button>
-      <button className="ui button" onClick = {this.onClickPlayAgain} > Play Again?</button>
-      <p></p>
-      {this.props.currentActiveUser.words.map(wordObj => <ResultsCardComponent wordObj={wordObj} key={wordObj.id}
-        id={wordObj.id}
-        array={this.props.currentActiveUser.words}
-        finalAnsArray = {this.props.finalAnsArray}
-      />)}
+        <UserProfileContainer />
+        <FinalResultsComponent array={this.props.currentActiveUser.words} wordsCorrect={this.state.wordsCorrect}
+        />
+        <p></p>
+        <button className="ui button" onClick = {this.onClickGoBackToBoard} > Go Back to Board?</button>
+        <button className="ui button" onClick = {this.onClickPlayAgain} > Play Again?</button>
+        <p></p>
+        {this.props.currentActiveUser.words.map(wordObj => <ResultsCardComponent      wordObj={wordObj} key={wordObj.id}
+          id={wordObj.id}
+          array={this.props.currentActiveUser.words}
+          finalAnsArray = {this.props.finalAnsArray}
+        />)}
       </div>
     )
   }
 }
 export default withRouter(LearnResultsPageContainer)
-
-
-
-///ADD LOGIC TO GET ANS CORRECT %
-//before mapping get the results then have an if statement where if your word is not the same as correct ans then render red or green container border
-
-//send the number of correct ans to finalresult
-
-
-
-
-
-// old result code
-// <div>
-//
-// <p>I am a learn results page</p>
-// <UserProfileContainer />
-// I am a learn results page, with a user profile component
-//
-// <FinalResultsComponent array={this.props.currentUserWords} wordsCorrect={this.state.wordsCorrect}
-// />
-// <button onClick = {this.onClickGoBackToBoard} > Go Back to Board?</button>
-// <button onClick = {this.onClickPlayAgain} > Play Again?</button>
-//
-// {this.props.currentActiveUser.words.map(wordObj => <ResultsCardComponent wordObj={wordObj} key={wordObj.id}
-//   id={wordObj.id}
-//   array={this.props.currentActiveUser.words}
-//   finalAnsArray = {this.props.finalAnsArray}
-//
-//   />)}
-//
-//
-//
-// </div>

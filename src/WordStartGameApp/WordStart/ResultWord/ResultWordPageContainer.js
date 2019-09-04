@@ -6,60 +6,44 @@ import CanvasDraw from "react-canvas-draw";
 
 
 class ResultWordPageContainer extends React.Component {
-
   constructor(){
     super()
     this.state = {
       width: 2000
-
     }
   }
-  handleSubmit = () => {
-    console.log("lets go to wordboard")
-  }
-  componentDidMount(){
-    //make a fetch/find call to get current active user from all user array and reset current active user to same logged in user to reflect update in words array.
-    this.props.updateUserInfo(this.props.currentActiveUser)
-  }
-
 
 render(){
   console.log(this.props.searchWord)
   console.log("I am login in as ",this.props.currentActiveUser)
   return(
     <div>
-
-    <UserProfileContainer />
-    <ResultWordComponent searchWord={this.props.searchWord} handleSubmit={this.handleSubmit}/>
-    <p></p>
-    <div>
-      <h1>Practice Writing Your Word On The Canvas</h1>
-      <div className="ui segment addCanvasBorder">
-      <CanvasDraw ref={canvasDraw => (this.saveableCanvas = canvasDraw)} canvasWidth={this.state.width}/>
-  </div>
-      <button className="ui button spacingResultButton" onClick={() => { this.saveableCanvas.clear(); }}>
+      <UserProfileContainer />
+      <ResultWordComponent searchWord={this.props.searchWord}/>
+      <p></p>
+      <div>
+        <h1>Practice Writing Your Word On The Canvas</h1>
+        <div className="ui segment addCanvasBorder">
+          <CanvasDraw ref={canvasDraw => (this.saveableCanvas = canvasDraw)} canvasWidth={this.state.width}/>
+        </div>
+        <button className="ui button spacingResultButton" onClick={() => {    this.saveableCanvas.clear(); }}>
         Clear
-      </button>
+        </button>
+      </div>
+      <p></p>
+      <div>
+        
+        <Link to = "/wordboard">
+          <button className="ui button"> Go To Word Board</button>
+        </Link>
+      </div>
+        <p></p>
+        <p></p>
+        <p></p>
+        <p></p>
+        <p></p>
     </div>
-    <p></p>
-    <div>
-    <Link to = "/getword">
-      <button className="ui button"> Search Another Word</button>
-    </Link>
-    <Link to = "/wordboard">
-      <button className="ui button"> Go To Word Board</button>
-    </Link>
-    </div>
-    <p></p>
-    <p></p>
-    <p></p>
-    <p></p>
-    <p></p>
-
-
-    </div>
-  )
-}
-
+    )
+  }
 }
 export default ResultWordPageContainer

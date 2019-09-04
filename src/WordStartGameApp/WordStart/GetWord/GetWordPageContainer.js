@@ -4,19 +4,8 @@ import GetWordPageComponent from '/Users/ethanfreire/Desktop/wordstart-frontend/
 import {withRouter}  from "react-router-dom"
 
 class GetWordPageContainer extends React.Component {
-  //this need to be passed in user state info from WordStartGameContainer
-
-  //stuff todo on get a word GetWordPage
-
-  // on submit of this form its for to make a fetch call to api to get word search results,
-  //if word exist add this word to UserWords state info,add this word to UserWords array in the DB(patch request), also say activeWord state
-  //then transfer to results page with the fetch call results
-  //if false don't add to UserState state info, but still go to results page
 
   //make a post request to add new word to word DB
-
-
-
   postWord = (data) => {
     console.log("make a word", data)
     if (data.message ){
@@ -40,10 +29,11 @@ class GetWordPageContainer extends React.Component {
         ,
         canvas_image: false
       }
+
       document.querySelector("#SearchWord").value = ""
 
       console.log("lets make a fetch on", newWordData)
-      fetch("http://localhost:3000/words/", {
+      fetch("https://wordstart-backend.herokuapp.com/words/", {
         method: "POST",
         headers: {"Content-Type": "application/json"},
         body: JSON.stringify(newWordData)
@@ -51,37 +41,25 @@ class GetWordPageContainer extends React.Component {
       .then(response => response.json())
       .then(data => {
         this.addUserWord(data)
-
-//have a function to refresh back end to reflect changes
-        // this.check()
-
         this.props.setSearchWord(data)
-
         this.props.history.push("/resultword")
-
       } )
     }
   }
 
-  // check(){
-  //   fetch("http://localhost:3000/users/")
-  //   .then(response => response.json())
-  //   .then(dataObject => {console.log("fecthing again",dataObject)})
-  // }
-
-  //adding a word to the logged in user-make generic with access to userobj
+  //adding a word to the logged in user
   addUserWord=(data)=> {
-    console.log("I am going to post this data to this user",data)
+    console.log("I am going to post this data to this user", data)
     console.log(this.props.currentActiveUser)
     let wordId = data.id
     let userId = this.props.currentActiveUser.id
-
-      let newUserWord={
+    let newUserWord={
     user_id: userId,
     word_id: wordId,
     activeword: false
       }
-    fetch("http://localhost:3000/user_words",
+
+    fetch("https://wordstart-backend.herokuapp.com/user_words",
     {
       method: "POST",
       headers: {"Content-Type": "application/json"},
@@ -89,13 +67,9 @@ class GetWordPageContainer extends React.Component {
     })
     .then(response => response.json())
     .then(data => console.log("you are here",data))
-
-
   }
 
-
-
-
+  //make a fetch call to search an english word.
   handleSubmit = (event) => {
     event.preventDefault()
 
@@ -112,9 +86,9 @@ class GetWordPageContainer extends React.Component {
     .then(data =>  {
       this.postWord(data)
     })
-
   }
 
+  //get a random english word
   getRandomWord = () => {
     console.log("I am searching a random word")
 
@@ -132,6 +106,7 @@ class GetWordPageContainer extends React.Component {
     })
   }
 
+  //found a random word, make a fetch call on random word.
   searchRandomWord = (data)=>{
     console.log("looking up", data.word)
     let randomWord = data.word
@@ -154,34 +129,24 @@ class GetWordPageContainer extends React.Component {
     })
   }
 
-
   render(){
     console.log(this.props.currentActiveUser)
     return(
       <div>
+        <UserProfileContainer />
+          <h1>
+            Start Learning a New Word Today {this.props.currentActiveUser.username}
+          </h1>
+        <GetWordPageComponent handleSubmit={this.handleSubmit} />
 
-      <UserProfileContainer />
-      <h1>
-       Start Learning a New Word Today {this.props.currentActiveUser.username}
-      </h1>
-      <GetWordPageComponent handleSubmit={this.handleSubmit} />
-
-      <div className="ui large header fixSpacingOR">
-      OR
-      </div>
-      <div className="loading">
-      <button className="ui button" onClick = {this.getRandomWord}> Search Random Word</button>
-      </div>
-
-
+        <div className="ui large header fixSpacingOR">
+          OR
+        </div>
+        <div className="loading">
+          <button className="ui button" onClick = {this.getRandomWord}> Search Random Word</button>
+        </div>
       </div>
     )
   }
 }
 export default withRouter(GetWordPageContainer)
-
-// add logic for on click to pass currentActiveUser.words / set state and go to wordboard page
-// <p>OR</p>
-// <Link to = {`/wordboard`}>
-// <input type="submit" value="Go To WordBoard" />
-// </Link>
