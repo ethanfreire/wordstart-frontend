@@ -4,6 +4,12 @@ import BoardMenuContainer from "/Users/ethanfreire/Desktop/wordstart-frontend/sr
 import BoardContainer from "/Users/ethanfreire/Desktop/wordstart-frontend/src/WordStartGameApp/WordStart/WordBoard/WordBoardPage/Board/BoardContainer.js"
 
 class WordBoardPageContainer extends React.Component {
+
+  componentDidMount(){
+    this.props.setCopyArrayWordBoard(this.props.currentUserWords)
+
+  }
+
   render(){
     console.log(this.props)
     console.log(this.props.currentActiveUser)

@@ -46,15 +46,15 @@ class LearnResultsPageContainer extends React.Component {
     return(
       <div>
         <UserProfileContainer />
-        <FinalResultsComponent array={this.props.currentActiveUser.words} wordsCorrect={this.state.wordsCorrect}
+        <FinalResultsComponent array={this.props.currentUserWords} wordsCorrect={this.state.wordsCorrect}
         />
         <p></p>
         <button className="ui button" onClick = {this.onClickGoBackToBoard} > Go Back to Board?</button>
         <button className="ui button" onClick = {this.onClickPlayAgain} > Play Again?</button>
         <p></p>
-        {this.props.currentActiveUser.words.map(wordObj => <ResultsCardComponent      wordObj={wordObj} key={wordObj.id}
+        {this.props.currentUserWords.map(wordObj => <ResultsCardComponent      wordObj={wordObj} key={wordObj.id}
           id={wordObj.id}
-          array={this.props.currentActiveUser.words}
+          array={this.props.currentUserWords}
           finalAnsArray = {this.props.finalAnsArray}
         />)}
       </div>

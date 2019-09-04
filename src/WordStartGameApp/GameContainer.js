@@ -57,6 +57,13 @@ class GameContainer extends React.Component {
     })
   }
 
+  setCopyArrayWordBoard = (data) => {
+    console.log("let set copy array when I'm in wordboard", data)
+    this.setState({
+      copyArrayGame:this.state.currentUserWords
+    })
+  }
+
   setSearchWord = (data) => {
     console.log("you searched for ", data)
     this.setState({
@@ -95,7 +102,7 @@ class GameContainer extends React.Component {
 
   deleteUserWord = (id) => {
     console.log("trying to delete this id ", id)
-  
+
     fetch(`https://wordstart-backend.herokuapp.com/words/${id}`,{
       method: 'DELETE'
     })
@@ -138,7 +145,8 @@ class GameContainer extends React.Component {
 
           <Route path="/wordboard" render={() => <WordBoardPageContainer  currentUserWords={this.state.currentUserWords}
           deleteUserWord = {this.deleteUserWord}
-          currentActiveUser={this.state.currentActiveUser}/>
+          currentActiveUser={this.state.currentActiveUser}
+          setCopyArrayWordBoard = {this.setCopyArrayWordBoard}/>
           }/>
 
           <Route path="/learngame" render={() => <LearnPageContainer currentUserWords={this.state.currentUserWords}
