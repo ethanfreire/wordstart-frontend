@@ -1,5 +1,5 @@
 import React from 'react'
-import randomWordOfTheDay from "src/RandomWordArray.js"
+import randomWordOfTheDay from "../../../RandomWordArray.js"
 
 const UserProfileComponent = (props) => {
   return(
