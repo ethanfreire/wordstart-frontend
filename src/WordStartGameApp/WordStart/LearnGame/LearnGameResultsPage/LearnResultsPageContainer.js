@@ -1,5 +1,5 @@
 import React from 'react'
-import UserProfileContainer from '../UserProfile/UserProfileContainer.js'
+import UserProfileContainer from '../../UserProfile/UserProfileContainer.js'
 import ResultsCardComponent from "./ResultsCard/ResultsCardComponents.js"
 import FinalResultsComponent from "./FinalResults/FinalResultsComponent.js"
 import {withRouter}  from "react-router-dom"
