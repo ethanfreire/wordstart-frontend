@@ -1,6 +1,6 @@
 import React from 'react'
 import LoginSignUpContainer from "/Users/ethanfreire/Desktop/wordstart-frontend/src/WordStartGameApp/Login-SignUp/LoginSignUpContainer.js"
-import NotFound from "/Users/ethanfreire/Desktop/wordstart-frontend/src/NotFound.js"
+import NotFound from "src/NotFound.js"
 import { Route, Switch, Redirect, withRouter } from 'react-router-dom'
 import UserProfileContainer from "/Users/ethanfreire/Desktop/wordstart-frontend/src/WordStartGameApp/WordStart/UserProfile/UserProfileContainer.js"
 import GetWordPageContainer from "/Users/ethanfreire/Desktop/wordstart-frontend/src/WordStartGameApp/WordStart/GetWord/GetWordPageContainer.js"
