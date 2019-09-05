@@ -1,6 +1,6 @@
 import React from "react"
 import LoginPageComponent from "./LoginPage/LoginPageComponent.js"
-import SignUpPageComponent from "./Login-SignUp/SignUpPage/SignUpPageComponent.js"
+import SignUpPageComponent from "./SignUpPage/SignUpPageComponent.js"
 import { withRouter } from 'react-router-dom'
 
 class LoginSignUpContainer extends React.Component {
