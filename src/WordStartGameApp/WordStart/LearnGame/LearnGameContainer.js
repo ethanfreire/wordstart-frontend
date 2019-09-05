@@ -1,7 +1,7 @@
 import React from 'react'
-import UserProfileContainer from '/Users/ethanfreire/Desktop/wordstart-frontend/src/WordStartGameApp/WordStart/UserProfile/UserProfileContainer.js'
-import LearnPageContainer from "/Users/ethanfreire/Desktop/wordstart-frontend/src/WordStartGameApp/WordStart/LearnGame/LearnGamePage/LearnPageContainer.js"
-import LearnResultsPageContainer from "/Users/ethanfreire/Desktop/wordstart-frontend/src/WordStartGameApp/WordStart/LearnGame/LearnGameResultsPage/LearnResultsPageContainer.js"
+import UserProfileContainer from 'src/WordStartGameApp/WordStart/UserProfile/UserProfileContainer.js'
+import LearnPageContainer from "src/WordStartGameApp/WordStart/LearnGame/LearnGamePage/LearnPageContainer.js"
+import LearnResultsPageContainer from "src/WordStartGameApp/WordStart/LearnGame/LearnGameResultsPage/LearnResultsPageContainer.js"
 import { withRouter } from 'react-router-dom'
 
 class LearnGameContainer extends React.Component {
@@ -14,7 +14,7 @@ class LearnGameContainer extends React.Component {
         <LearnPageContainer />
         : null
         }
-        
+
         { this.props.location.pathname === "/learnresult" ?
         <LearnResultsPageContainer />
         : null

@@ -1,6 +1,6 @@
 import React from 'react'
-import UserProfileContainer from '/Users/ethanfreire/Desktop/wordstart-frontend/src/WordStartGameApp/WordStart/UserProfile/UserProfileContainer.js'
-import ResultWordComponent from '/Users/ethanfreire/Desktop/wordstart-frontend/src/WordStartGameApp/WordStart/ResultWord/ResultWordPage/ResultWordComponent.js'
+import UserProfileContainer from 'src/WordStartGameApp/WordStart/UserProfile/UserProfileContainer.js'
+import ResultWordComponent from 'src/WordStartGameApp/WordStart/ResultWord/ResultWordPage/ResultWordComponent.js'
 import {Link}  from "react-router-dom"
 import CanvasDraw from "react-canvas-draw";
 
@@ -32,7 +32,7 @@ render(){
       </div>
       <p></p>
       <div>
-        
+
         <Link to = "/wordboard">
           <button className="ui button"> Go To Word Board</button>
         </Link>

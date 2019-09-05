@@ -1,6 +1,6 @@
 import React from "react"
-import LoginPageComponent from "/Users/ethanfreire/Desktop/wordstart-frontend/src/WordStartGameApp/Login-SignUp/LoginPage/LoginPageComponent.js"
-import SignUpPageComponent from "/Users/ethanfreire/Desktop/wordstart-frontend/src/WordStartGameApp/Login-SignUp/SignUpPage/SignUpPageComponent.js"
+import LoginPageComponent from "src/WordStartGameApp/Login-SignUp/LoginPage/LoginPageComponent.js"
+import SignUpPageComponent from "src/WordStartGameApp/Login-SignUp/SignUpPage/SignUpPageComponent.js"
 import { withRouter } from 'react-router-dom'
 
 class LoginSignUpContainer extends React.Component {

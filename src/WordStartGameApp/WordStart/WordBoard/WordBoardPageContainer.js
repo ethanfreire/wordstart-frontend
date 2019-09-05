@@ -1,7 +1,7 @@
 import React from 'react'
-import UserProfileContainer from '/Users/ethanfreire/Desktop/wordstart-frontend/src/WordStartGameApp/WordStart/UserProfile/UserProfileContainer.js'
-import BoardMenuContainer from "/Users/ethanfreire/Desktop/wordstart-frontend/src/WordStartGameApp/WordStart/WordBoard/WordBoardPage/MenuBar/BoardMenuContainer.js"
-import BoardContainer from "/Users/ethanfreire/Desktop/wordstart-frontend/src/WordStartGameApp/WordStart/WordBoard/WordBoardPage/Board/BoardContainer.js"
+import UserProfileContainer from 'src/WordStartGameApp/WordStart/UserProfile/UserProfileContainer.js'
+import BoardMenuContainer from "src/WordStartGameApp/WordStart/WordBoard/WordBoardPage/MenuBar/BoardMenuContainer.js"
+import BoardContainer from "src/WordStartGameApp/WordStart/WordBoard/WordBoardPage/Board/BoardContainer.js"
 
 class WordBoardPageContainer extends React.Component {
 

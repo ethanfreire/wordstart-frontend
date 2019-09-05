@@ -1,13 +1,13 @@
 import React from 'react'
-import LoginSignUpContainer from "/Users/ethanfreire/Desktop/wordstart-frontend/src/WordStartGameApp/Login-SignUp/LoginSignUpContainer.js"
+import LoginSignUpContainer from "src/WordStartGameApp/Login-SignUp/LoginSignUpContainer.js"
 import NotFound from "src/NotFound.js"
 import { Route, Switch, Redirect, withRouter } from 'react-router-dom'
-import UserProfileContainer from "/Users/ethanfreire/Desktop/wordstart-frontend/src/WordStartGameApp/WordStart/UserProfile/UserProfileContainer.js"
-import GetWordPageContainer from "/Users/ethanfreire/Desktop/wordstart-frontend/src/WordStartGameApp/WordStart/GetWord/GetWordPageContainer.js"
-import LearnResultsPageContainer from "/Users/ethanfreire/Desktop/wordstart-frontend/src/WordStartGameApp/WordStart/LearnGame/LearnGameResultsPage/LearnResultsPageContainer.js"
-import ResultWordPageContainer from "/Users/ethanfreire/Desktop/wordstart-frontend/src/WordStartGameApp/WordStart/ResultWord/ResultWordPageContainer.js"
-import WordBoardPageContainer from "/Users/ethanfreire/Desktop/wordstart-frontend/src/WordStartGameApp/WordStart/WordBoard/WordBoardPageContainer.js"
-import LearnPageContainer from "/Users/ethanfreire/Desktop/wordstart-frontend/src/WordStartGameApp/WordStart/LearnGame/LearnGamePage/LearnPageContainer.js"
+import UserProfileContainer from "src/WordStartGameApp/WordStart/UserProfile/UserProfileContainer.js"
+import GetWordPageContainer from "src/WordStartGameApp/WordStart/GetWord/GetWordPageContainer.js"
+import LearnResultsPageContainer from "src/WordStartGameApp/WordStart/LearnGame/LearnGameResultsPage/LearnResultsPageContainer.js"
+import ResultWordPageContainer from "src/WordStartGameApp/WordStart/ResultWord/ResultWordPageContainer.js"
+import WordBoardPageContainer from "src/WordStartGameApp/WordStart/WordBoard/WordBoardPageContainer.js"
+import LearnPageContainer from "src/WordStartGameApp/WordStart/LearnGame/LearnGamePage/LearnPageContainer.js"
 
 class GameContainer extends React.Component {
   constructor() {
