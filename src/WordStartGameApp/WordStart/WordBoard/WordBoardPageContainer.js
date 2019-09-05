@@ -1,7 +1,7 @@
 import React from 'react'
 import UserProfileContainer from '../UserProfile/UserProfileContainer.js'
 import BoardMenuContainer from "./WordBoardPage/MenuBar/BoardMenuContainer.js"
-import BoardContainer from "./WordBoard/WordBoardPage/Board/BoardContainer.js"
+import BoardContainer from "./WordBoardPage/Board/BoardContainer.js"
 
 class WordBoardPageContainer extends React.Component {
 
