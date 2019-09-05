@@ -91,7 +91,7 @@ handleSubmit = (event) => {
     .then(response => response.json())
     .then(data => {
       this.getUsername(this.state.allUsers)
-      window.location = "http://localhost:3000/login";
+      window.location = "https://wordstart-frontend.herokuapp.com/login";
     })
   }
 }

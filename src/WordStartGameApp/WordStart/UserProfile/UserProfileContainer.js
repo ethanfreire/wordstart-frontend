@@ -17,7 +17,7 @@ class UserProfileContainer extends React.Component {
   }
 
   onClick = () => {
-      window.location.href = 'http://localhost:3000/login';
+      window.location.href = 'https://wordstart-frontend.herokuapp.com/login';
   }
 
   componentDidMount(){
