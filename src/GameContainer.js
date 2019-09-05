@@ -1,6 +1,6 @@
 import React from 'react'
 import LoginSignUpContainer from "src/WordStartGameApp/Login-SignUp/LoginSignUpContainer.js"
-import NotFound from "src/NotFound.js"
+import NotFound from "./NotFound.js"
 import { Route, Switch, Redirect, withRouter } from 'react-router-dom'
 import UserProfileContainer from "src/WordStartGameApp/WordStart/UserProfile/UserProfileContainer.js"
 import GetWordPageContainer from "src/WordStartGameApp/WordStart/GetWord/GetWordPageContainer.js"
