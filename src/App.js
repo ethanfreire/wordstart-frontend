@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import GameContainer from '/Users/ethanfreire/Desktop/wordstart-frontend/src/WordStartGameApp/GameContainer.js'
+import GameContainer from "src/GameContainer.js"
 
 
 function App() {
