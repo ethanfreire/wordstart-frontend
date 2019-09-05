@@ -1,5 +1,5 @@
 import React from 'react'
-import UserProfileComponent from "src/WordStartGameApp/WordStart/UserProfile/UserProfileComponent.js"
+import UserProfileComponent from "./UserProfileComponent.js"
 
 class UserProfileContainer extends React.Component {
   constructor(){
