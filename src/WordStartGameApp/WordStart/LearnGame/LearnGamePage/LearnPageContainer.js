@@ -1,5 +1,5 @@
 import React from 'react'
-import UserProfileContainer from '../UserProfile/UserProfileContainer.js'
+import UserProfileContainer from '../../UserProfile/UserProfileContainer.js'
 import Countdown from "./LearnPageComponents/Countdown.js"
 import GameSlideComponent from "./LearnPageComponents/GameSlideComponent.js"
 import { withRouter } from 'react-router-dom'
