@@ -1,6 +1,6 @@
 import React from 'react'
-import UserProfileContainer from 'src/WordStartGameApp/WordStart/UserProfile/UserProfileContainer.js'
-import GetWordPageComponent from 'src/WordStartGameApp/WordStart/GetWord/GetWordPage/GetWordPageComponent.js'
+import UserProfileContainer from '../UserProfile/UserProfileContainer.js'
+import GetWordPageComponent from './GetWordPage/GetWordPageComponent.js'
 import {withRouter}  from "react-router-dom"
 
 class GetWordPageContainer extends React.Component {
