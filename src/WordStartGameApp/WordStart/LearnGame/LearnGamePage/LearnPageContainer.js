@@ -1,7 +1,7 @@
 import React from 'react'
-import UserProfileContainer from 'src/WordStartGameApp/WordStart/UserProfile/UserProfileContainer.js'
-import Countdown from "src/WordStartGameApp/WordStart/LearnGame/LearnGamePage/LearnPageComponents/Countdown.js"
-import GameSlideComponent from "src/WordStartGameApp/WordStart/LearnGame/LearnGamePage/LearnPageComponents/GameSlideComponent.js"
+import UserProfileContainer from '../UserProfile/UserProfileContainer.js'
+import Countdown from "./LearnPageComponents/Countdown.js"
+import GameSlideComponent from "./LearnPageComponents/GameSlideComponent.js"
 import { withRouter } from 'react-router-dom'
 
 class LearnPageContainer extends React.Component {

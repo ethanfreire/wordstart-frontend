@@ -1,6 +1,6 @@
 import React from 'react'
-import UserProfileContainer from 'src/WordStartGameApp/WordStart/UserProfile/UserProfileContainer.js'
-import ResultWordComponent from 'src/WordStartGameApp/WordStart/ResultWord/ResultWordPage/ResultWordComponent.js'
+import UserProfileContainer from '../UserProfile/UserProfileContainer.js'
+import ResultWordComponent from './ResultWordPage/ResultWordComponent.js'
 import {Link}  from "react-router-dom"
 import CanvasDraw from "react-canvas-draw";
 

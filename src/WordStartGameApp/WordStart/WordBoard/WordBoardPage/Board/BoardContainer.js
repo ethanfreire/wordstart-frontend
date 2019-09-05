@@ -1,5 +1,5 @@
 import React from 'react'
-import WordCardComponent from 'src/WordStartGameApp/WordStart/WordBoard/WordBoardPage/Board/WordCardComponent.js'
+import WordCardComponent from './WordCardComponent.js'
 
 class BoardContainer extends React.Component {
   deleteWord = (id) => {

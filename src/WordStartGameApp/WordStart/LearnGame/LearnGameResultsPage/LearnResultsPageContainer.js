@@ -1,7 +1,7 @@
 import React from 'react'
-import UserProfileContainer from 'src/WordStartGameApp/WordStart/UserProfile/UserProfileContainer.js'
-import ResultsCardComponent from "src/WordStartGameApp/WordStart/LearnGame/LearnGameResultsPage/ResultsCard/ResultsCardComponents.js"
-import FinalResultsComponent from "src/WordStartGameApp/WordStart/LearnGame/LearnGameResultsPage/FinalResults/FinalResultsComponent.js"
+import UserProfileContainer from '../UserProfile/UserProfileContainer.js'
+import ResultsCardComponent from "./ResultsCard/ResultsCardComponents.js"
+import FinalResultsComponent from "./FinalResults/FinalResultsComponent.js"
 import {withRouter}  from "react-router-dom"
 
 class LearnResultsPageContainer extends React.Component {
