@@ -13,7 +13,9 @@ class LearnResultsPageContainer extends React.Component {
   }
 
   componentDidMount() {
+    if(this.props.finalAnsArray.length > 0 ){
     this.setUserAns(this.props.currentUserWords, this.props.finalAnsArray)
+  }
   }
 
   onClickPlayAgain = ()=> {
@@ -32,11 +34,11 @@ class LearnResultsPageContainer extends React.Component {
 
   setUserAns = (ans, userAns) => {
       let counterCorrect = userAns.map((word, index) => {
-        if (ans[index] !== undefined){
+
         if (word.toLowerCase() === ans[index].word) {
           return word
         }
-      }})
+      })
       let finalUserCorrectAns = counterCorrect.filter(word => word !== undefined )
         this.setState({
           wordsCorrect: finalUserCorrectAns
