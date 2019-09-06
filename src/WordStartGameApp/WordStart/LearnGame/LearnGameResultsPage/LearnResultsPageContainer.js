@@ -32,6 +32,7 @@ class LearnResultsPageContainer extends React.Component {
 
   setUserAns = (ans, userAns) => {
       let counterCorrect = userAns.map((word, index) => {
+        debugger
         if (word.toLowerCase() === ans[index].word) {
           return word
         }
