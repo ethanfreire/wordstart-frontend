@@ -32,11 +32,11 @@ class LearnResultsPageContainer extends React.Component {
 
   setUserAns = (ans, userAns) => {
       let counterCorrect = userAns.map((word, index) => {
-        
+        if (word !=== undefined){
         if (word.toLowerCase() === ans[index].word) {
           return word
         }
-      })
+      }})
       let finalUserCorrectAns = counterCorrect.filter(word => word !== undefined )
         this.setState({
           wordsCorrect: finalUserCorrectAns
