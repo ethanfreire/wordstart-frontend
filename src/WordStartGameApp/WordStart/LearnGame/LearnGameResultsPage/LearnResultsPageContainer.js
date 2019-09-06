@@ -13,7 +13,7 @@ class LearnResultsPageContainer extends React.Component {
   }
 
   componentDidMount() {
-    this.setUserAns(this.props.currentActiveUser.words, this.props.finalAnsArray)
+    this.setUserAns(this.props.currentUserWords, this.props.finalAnsArray)
   }
 
   onClickPlayAgain = ()=> {
@@ -32,7 +32,7 @@ class LearnResultsPageContainer extends React.Component {
 
   setUserAns = (ans, userAns) => {
       let counterCorrect = userAns.map((word, index) => {
-        debugger
+        
         if (word.toLowerCase() === ans[index].word) {
           return word
         }
