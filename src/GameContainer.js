@@ -53,14 +53,15 @@ class GameContainer extends React.Component {
 
   setCopyArray = (data) => {
     this.setState({
-      copyArrayGame:this.state.currentUserWords
+      copyArrayGame: [...this.state.currentUserWords]
     })
   }
 
   setCopyArrayWordBoard = (data) => {
     console.log("let set copy array when I'm in wordboard", data)
     this.setState({
-      copyArrayGame:this.state.currentUserWords
+      copyArrayGame: [...this.state.currentUserWords]
+
     })
   }
 
