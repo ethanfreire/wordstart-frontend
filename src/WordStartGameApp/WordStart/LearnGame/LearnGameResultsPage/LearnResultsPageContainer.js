@@ -14,8 +14,8 @@ class LearnResultsPageContainer extends React.Component {
 
   componentDidMount() {
 
-    this.setUserAns(this.props.currentActiveUser.words, this.props.finalAnsArray)
-  
+    this.setUserAns(this.props.currentUserWords, this.props.finalAnsArray)
+
   }
 
   onClickPlayAgain = ()=> {
