@@ -20,7 +20,7 @@ const SignUpPageComponent = (props)=>{
           <label htmlFor="newPassword">
             Password:
           </label>
-          <input type="text" id="newPassword" name="password" placeholder="please enter a password" />
+          <input type="password" id="newPassword" name="password" placeholder="please enter a password" />
         </div>
         <button class="ui button" type="submit">
           Create An Account
