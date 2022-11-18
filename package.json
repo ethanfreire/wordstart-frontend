@@ -11,7 +11,7 @@
     "react-compound-timer": "^1.1.4",
     "react-dom": "^16.8.6",
     "react-router-dom": "^5.0.1",
-    "react-scripts": "3.0.1",
+    "react-scripts": "5.0.1",
     "react-slick": "^0.25.2",
     "react-step-wizard": "^5.3.0"
   },
